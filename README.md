@@ -1,11 +1,11 @@
 # Bibliotia
 Joint project of an ecommers website for the sale of books. 
 
-## Prerequisites:
+## Prerequisites
   - Python
   - Visual Studio Code
 
-## Basic Instalation:
+## Basic Instalation
   - Start the virtual environment:
     
       - Linux:
