@@ -1,0 +1,40 @@
+{% extends 'base/base_login.html' %}
+
+{% block content %}
+
+<!--{% if error_message %}
+<br><p class="text-danger">{{ error_message }}</p> 
+{% endif %}
+</form>-->
+
+<form action="{% url 'signup' %}" method="POST">
+  {% csrf_token %}
+
+  <h2 class="fw-bold mb-2 text-uppercase">Crear Cuenta</h2>
+  <br /><br />
+
+  <div class="form-outline form-white mb-4">
+    {{form.username}}
+    <label class="form-label" for="{{ form.username.id_for_label }}" style="display: block; margin-top: 5px;">Username</label>
+  </div><br>
+
+  <div class="form-outline form-white mb-4">
+    {{form.password1}}
+    <label class="form-label" for="{{form.password1.id_for_label}}" style="display: block; margin-top: 5px;">Password</label>
+  </div><br><br>
+
+  <div class="form-outline form-white mb-4">
+    {{form.password2}}
+    <label class="form-label" for="{{form.password2.id_for_label}}" style="display: block; margin-top: 5px;">Re-Password</label>
+  </div><br><br>
+
+  <input
+    class="btn btn-outline-light btn-lg px-5"
+    type="submit"
+    value="Ingresar"
+  /><br />
+</form>
+
+<p style="color: red;margin-top: 20px;">{{error}}</p>
+
+{% endblock content %}

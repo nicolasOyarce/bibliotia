@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            
+
+            {% for car in cars %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{car.image_url}}" alt="{{car.model}}" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{car.brand}} {{car.model}}</h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            ${{car.price}}
+                        </div>
+                    </div>
+                    <form action="" style="margin-left: 80px;margin-bottom: 15px;">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <a style="text-decoration: none;" class="bi-cart-fill me-1" href="{% url 'update' car.patente %}">Modificar</a>
+                        </button>
+                    </form>
+
+                    <form action="{% url 'delete' car.patente %}" method="post" style="margin-left: 87px;margin-bottom: 15px;"> 
+                        {% csrf_token %}
+                        <button class="btn btn-outline-dark">Eliminar</button>
+                    </form>
+                   
+                </div>
+            </div>
+            {% endfor %}
+          
+        </div>
+    </div>
+</section>
+{% endblock content %}
