@@ -6,6 +6,12 @@ Joint project of an ecommers website for the sale of books.
   - Visual Studio Code
 
 ## Basic Instalation
+  - Create virtual enviroment:
+  ```
+  pip install virtualenv
+  virtualenv venv
+  ```
+
   - Start the virtual environment:
     
       - Linux:
@@ -15,7 +21,7 @@ Joint project of an ecommers website for the sale of books.
 
       - Windows:
         ```
-        venv/bin/activate
+        venv/Scripts/activate
         ```
         
   - Once inside the virtual environment use the following command:
