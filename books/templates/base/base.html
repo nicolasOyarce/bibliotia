@@ -110,7 +110,7 @@
 
 
           <!-- LOGOUT -->
-          <form class="d-flex">
+          <form action="{% url 'logout' %}" class="d-flex">
             <button class="btn btn-outline-dark" type="submit">
               <a
                 style="text-decoration: none"
@@ -123,7 +123,7 @@
 
           {% else %}
 
-          <form class="d-flex">
+          <form action="{% url 'signin' %}" class="d-flex">
             <button
               class="btn btn-outline-dark"
               type="submit"

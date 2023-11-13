@@ -13,7 +13,6 @@ def index(request):
 
     books = Books.objects.all()
     books_index = books[:8]
-    print(len(books))
 
     return render(request, 'index.html', {
         'books': books_index,
@@ -46,12 +45,12 @@ def signup(request):
                 # Failed Register
                 return render(request, 'login/signup.html', {
                     'form': UserCreationForm,
-                    'error': 'Username already exists'
+                    'error': 'Nombre de usuario ya existe'
                 })
 
         return render(request, 'login/signup.html', {
             'form': UserCreationForm,
-            'error': 'Password do not match'
+            'error': 'Las contraseñas no coinciden'
         })
 
 
@@ -79,7 +78,7 @@ def signin(request):
         if user is None:
             return render(request, 'login/signin.html', {
                 'form': AuthenticationForm,
-                'error': 'Username or Password is incorrect'
+                'error': 'Usuario o contraseña incorrecta'
             })
 
         else:
