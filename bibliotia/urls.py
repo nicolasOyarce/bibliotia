@@ -15,5 +15,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('mod_book/', views.mod_book, name='mod_book'),
     path('delete/<str:id>/', views.delete, name='delete'),
-    path('shoppingCart/', views.shoppingCart, name='shoppingCart')
+    path('shoppingCart/', views.shoppingCart, name='shoppingCart'),
+    path('contact/', views.contact, name="contact")
 ]

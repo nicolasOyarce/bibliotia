@@ -11,27 +11,13 @@ from .models import Books
 # Index Page
 def index(request):
 
-    if request.method == 'GET':
+    books = Books.objects.all()
+    books_index = books[:8]
+    print(len(books))
 
-        return render(request, 'index.html', {
-            'form': AuthenticationForm,
-        })
-
-    else:
-
-        user = authenticate(
-            request, username=request.POST['username'], password=request.POST['password'])
-
-        if user is None:
-            return render(request, 'index.html', {
-                'form': AuthenticationForm,
-                'error': 'Username or Password is incorrect'
-            })
-
-        else:
-
-            login(request, user)
-            return redirect('index')
+    return render(request, 'index.html', {
+        'books': books_index,
+    })
 
 
 # Account Creation
@@ -193,6 +179,10 @@ def products(request):
 
 def about(request):
     return render(request, "about.html")
+
+
+def contact(request):
+    return render(request, "contact.html")
 
 
 def shoppingCart(request):

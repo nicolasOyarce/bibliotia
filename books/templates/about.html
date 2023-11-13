@@ -2,6 +2,110 @@
 
 {% block content %}
 
+<!-- Modal Login -->
+          <div
+            class="modal fade"
+            id="modalLogin"
+            tabindex="-1"
+            aria-labelledby="ModalFormLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                  <div class="myform bg-dark">
+                    <h1 class="text-center" style="margin: 25px 0 40px 0;">Iniciar Sesion</h1>
 
+                    <form action="">
+                      <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label" style="text-align: center;"
+                          >Nombre de usuario</label
+                        ><br>
+                        <div class="text-center">
+                            {{form.username}}
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label" style="text-align: center;"
+                          >Contraseña</label
+                        ><br>
+                        <div class="text-center" style="margin-bottom: 50px;">
+                            {{form.password}}
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-light mt-3">
+                        Ingresar
+                      </button>
+                      <p>
+                        No estas registrado?
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalRegister"
+                        >Crear Cuenta</a>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-{% endblock content %}
+          <!-- Modal Register-->
+          <div
+            class="modal fade"
+            id="modalRegister"
+            tabindex="-1"
+            aria-labelledby="ModalFormLabel"
+            aria-hidden="true"
+            >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                  <div class="myform bg-dark">
+                    <h1 class="text-center" style="margin: 25px 0 35px 0;">Iniciar Sesion</h1>
+
+                    <form action="">
+                      <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label"
+                          >Nombre de usuario</label
+                        ><br>
+                        {{form.username}}
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label"
+                          >Contraseña</label
+                        ><br>
+                        {{form.password1}}
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label"
+                          >Contraseña</label
+                        ><br>
+                        {{form.password2}}
+                      </div>
+                      <button type="submit" class="btn btn-light mt-3">
+                        Ingresar
+                      </button>
+                      <p>
+                        No estas registrado?
+                        <a href="#">Crear Cuenta</a>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!-- CONTENT -->
+
+{% endblock content %} 

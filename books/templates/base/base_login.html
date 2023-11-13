@@ -21,45 +21,25 @@
     <!--Title-->
     <title>Login</title>
 
-    <style>
-      .vh-100 {
-        min-height: 100vh;
-      }
-
-      video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        z-index: -1;
-      }
-      body {
-        overflow: hidden;
-      }
-    </style>
   </head>
   <body>
-    <section class="vh-100 gradient-custom">
-      <video alt="Login image" class="w-100 vh-100" loop autoplay muted>
-        <source src="/static/video_main.mp4" type="video/mp4" />
-      </video>
+ 
+    <section class="vh-100" style="background-color: #0B5A74;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-10">
+            <div class="card" style="border-radius: 1rem;">
+              <div class="row g-0">
+                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F1793025%2Fpexels-photo-1793025.jpeg%3Fcs%3Dsrgb%26dl%3Dperson-reading-a-book-1793025.jpg%26fm%3Djpg&f=1&nofb=1&ipt=535792745fe0518ceb915f8e5499ec3c02e5f7ba69fad64212584bea977bded4&ipo=images"
+                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height: 740px;" />
+                </div>
+                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body p-4 p-lg-5 text-black">
 
-      <div class="container py-5">
-        <div
-          class="row d-flex justify-content-center align-items-center vh-100"
-          style="margin-top: -5%"
-        >
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div
-              class="card bg-dark text-white"
-              style="border-radius: 1rem; border-color: white"
-            >
-              <div class="card-body p-5 text-center">
-                <div class="mb-md-5 mt-md-4 pb-5">
-                    <!-- LOGIN CONTENT -->
-                  {% block content %}{% endblock content %}
+                    {% block content %}{% endblock content %}
+
+                  </div>
                 </div>
               </div>
             </div>

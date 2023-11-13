@@ -2,39 +2,28 @@
 
 {% block content %}
 
-<!--{% if error_message %}
-<br><p class="text-danger">{{ error_message }}</p> 
-{% endif %}
-</form>-->
+<form action="{% url 'signup' %}" method="post"> {% csrf_token %}
 
-<form action="{% url 'signup' %}" method="POST">
-  {% csrf_token %}
+  <div class="d-flex align-items-center mb-3 pb-1">
+    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+    <span class="h1 fw-bold mb-0"><img src="../../static/images/bibliotiaFullLogo.png" alt="logo" width="330px" height="90px" style="margin-left: -39px;"></span>
+  </div>
 
-  <h2 class="fw-bold mb-2 text-uppercase">Crear Cuenta</h2>
-  <br /><br />
+  <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Crear Cuenta</h4>
 
-  <div class="form-outline form-white mb-4">
-    {{form.username}}
-    <label class="form-label" for="{{ form.username.id_for_label }}" style="display: block; margin-top: 5px;">Username</label>
-  </div><br>
+  {% for field in form %}
+    <div class="form-outline mb-4">
+      <input type="{{field.html_name}}" class="form-control form-control-lg" />
+      <label class="form-label" for="{{field.id_for_label}}">{{field.label}}</label>
+    </div>
+  {% endfor %}
 
-  <div class="form-outline form-white mb-4">
-    {{form.password1}}
-    <label class="form-label" for="{{form.password1.id_for_label}}" style="display: block; margin-top: 5px;">Password</label>
-  </div><br><br>
+  <div class="pt-1 mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="button">Crear Cuenta</button>
+  </div>
 
-  <div class="form-outline form-white mb-4">
-    {{form.password2}}
-    <label class="form-label" for="{{form.password2.id_for_label}}" style="display: block; margin-top: 5px;">Re-Password</label>
-  </div><br><br>
-
-  <input
-    class="btn btn-outline-light btn-lg px-5"
-    type="submit"
-    value="Ingresar"
-  /><br />
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">Ya tienes cuenta? <a href="{% url 'signin' %}"
+      style="color: #393f81;">Volver</a></p>
 </form>
-
-<p style="color: red;margin-top: 20px;">{{error}}</p>
 
 {% endblock content %}

@@ -1,26 +1,29 @@
 {% extends 'base/base_login.html' %} 
 
-{% block content_signin %}
+{% block content %}
 
-<!-- Modal -->
+<form action="{% url 'signin' %}" method="post"> {% csrf_token %}
 
-<form action="{% url 'index' %}">
-  <div class="mb-3 mt-4">
-    <label for="exampleInputEmail1" class="form-label"
-      >Nombre de usuario</label
-    >
-    {{form.username}}
+  <div class="d-flex align-items-center mb-3 pb-1">
+    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+    <span class="h1 fw-bold mb-0"><img src="../../static/images/bibliotiaFullLogo.png" alt="logo" width="330px" height="90px" style="margin-left: -39px;"></span>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label"
-      >Contraseña</label
-    >
-    {{form.password}}
+
+  <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesion</h4>
+
+  {% for field in form %}
+  <div class="form-outline mb-4">
+    <input type="{{field.html_name}}" class="form-control form-control-lg" />
+    <label class="form-label" for="{{field.id_for_label}}">{{field.label}}</label>
   </div>
-  <button type="submit" class="btn btn-light mt-3">Ingresar</button>
-  <p>
-    No estas registrado? <a href="{% url 'signup' %}">Crear Cuenta</a>
-  </p>
+  {% endfor %}
+
+  <div class="pt-1 mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="button">Ingresar</button>
+  </div>
+
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">No tienes cuenta? <a href="{% url 'signup' %}"
+      style="color: #393f81;">Registrate</a></p>
 </form>
           
-{% endblock content_signin %}
+{% endblock content %}

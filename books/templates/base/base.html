@@ -32,76 +32,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
-    <style>
-      .modal-content {
-        width: 80%;
-        margin: 0 auto;
-      }
-      .modal-body {
-        padding: 0;
-      }
-      .btn-close {
-        position: absolute;
-        right: 0;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 2.3em;
-        font-weight: bold;
-      }
-      .myform {
-        padding: 2em;
-        max-width: 100%;
-        color: #fff;
-        box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
-      }
-      @media (max-width: 576px) {
-        .myform {
-          max-width: 90%;
-          margin: 0 auto;
-        }
-      }
-      .form-control:focus {
-        box-shadow: inset 0 -1px 0 #7e7e7e;
-      }
-      .form-control {
-        background-color: inherit;
-        color: #fff;
-        padding-left: 0;
-        border: 0;
-        border-radius: 0;
-        border-bottom: 1px solid #fff;
-      }
-      .myform .btn {
-        width: 100%;
-        font-weight: 800;
-        background-color: #fff;
-        border-radius: 0;
-        padding: 0.5em 0;
-      }
-      .myform .btn:hover {
-        background-color: inherit;
-        color: #fff;
-        border-color: #fff;
-      }
-      p {
-        text-align: center;
-        padding-top: 2em;
-        color: grey;
-      }
-      p a {
-        color: #e1e1e1;
-        text-decoration: none;
-      }
-      p a:hover {
-        color: #fff;
-      }
-
-      .form-control {
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -132,10 +62,10 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contacto /</a>
-
-              {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'contact' %}">Contacto /</a>
             </li>
+
+            {% if user.is_authenticated %}
 
             <li class="nav-item dropdown">
               <a
@@ -197,13 +127,11 @@
             <button
               class="btn btn-outline-dark"
               type="submit"
-              data-bs-toggle="modal"
-              data-bs-target="#modalLogin"
             >
               <a
                 style="text-decoration: none"
                 class="bi-cart-fill me-1"
-                href="#"
+                href="{% url 'signin' %}"
                 ><i
                   style="color: #000; margin-left: 5px"
                   class="fa-solid fa-user icono"
@@ -213,114 +141,11 @@
             </button>
           </form>
 
-          <!-- Modal Login -->
-          <div
-            class="modal fade"
-            id="modalLogin"
-            tabindex="-1"
-            aria-labelledby="ModalFormLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                  <div class="myform bg-dark">
-                    <h1 class="text-center" style="margin: 25px 0 40px 0;">Iniciar Sesion</h1>
-
-                    <form action="">
-                      <div class="mb-3 mt-4">
-                        <label for="exampleInputEmail1" class="form-label" style="text-align: center;"
-                          >Nombre de usuario</label
-                        ><br>
-                        <div class="text-center">
-                            {{form.username}}
-                        </div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label" style="text-align: center;"
-                          >Contraseña</label
-                        ><br>
-                        <div class="text-center" style="margin-bottom: 50px;">
-                            {{form.password}}
-                        </div>
-                      </div>
-                      <button type="submit" class="btn btn-light mt-3">
-                        Ingresar
-                      </button>
-                      <p>
-                        No estas registrado?
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalRegister"
-                        >Crear Cuenta</a>
-                      </p>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal Register-->
-          <div
-            class="modal fade"
-            id="modalRegister"
-            tabindex="-1"
-            aria-labelledby="ModalFormLabel"
-            aria-hidden="true"
-            >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                  <div class="myform bg-dark">
-                    <h1 class="text-center" style="margin: 25px 0 35px 0;">Iniciar Sesion</h1>
-
-                    <form action="">
-                      <div class="mb-3 mt-4">
-                        <label for="exampleInputEmail1" class="form-label"
-                          >Nombre de usuario</label
-                        ><br>
-                        {{form.username}}
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"
-                          >Contraseña</label
-                        ><br>
-                        {{form.password1}}
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label"
-                          >Contraseña</label
-                        ><br>
-                        {{form.password2}}
-                      </div>
-                      <button type="submit" class="btn btn-light mt-3">
-                        Ingresar
-                      </button>
-                      <p>
-                        No estas registrado?
-                        <a href="#">Crear Cuenta</a>
-                      </p>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           {% endif %}
         </div>
       </div>
     </nav>
+
     <!-- CONTENT -->
     {% block content %}{% endblock content %}
 
