@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import BooksForm
 from .models import Books
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -55,6 +56,7 @@ def signup(request):
 
 
 # Logout Account
+@login_required
 def signout(request):
 
     logout(request)
@@ -87,6 +89,7 @@ def signin(request):
             return redirect('index')
 
 
+@login_required
 # Books Registration
 def register_book(request):
 
@@ -120,6 +123,7 @@ def item(request, car_patente):
     })
 
 
+@login_required
 def update(request, id):
 
     if request.method == 'GET':
@@ -159,6 +163,7 @@ def delete(request, id):
         return redirect('crudBooks/mod_book')
 
 
+@login_required
 def mod_book(request):
 
     books = Books.objects.all()
