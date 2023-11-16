@@ -31,5 +31,5 @@ Joint project of an ecommers website for the sale of books.
         
   - Once inside the virtual environment use the following command:
     ```
-    pip install -r requirement.txt
+    pip install -r requirements.txt
     ```
