@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
     
 class Books(models.Model):
 
-    id          = models.AutoField(primary_key=True)
+    id          = models.AutoField(primary_key=True, auto_created=True)
     name        = models.CharField(max_length=100)
     author      = models.CharField(max_length=100)
     editorial   = models.CharField(max_length=100)
