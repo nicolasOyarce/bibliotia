@@ -1,0 +1,125 @@
+{% extends "base/base.html" %} 
+
+{% block content %}
+
+<section class="intro">
+  <div
+    class="bg-image-vertical h-100"
+    style="
+      background-color: #dfdfdf;
+    "
+  >
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="card" style="border-radius: 1rem">
+              <div class="card-body p-5"style="margin: 30px 0;">
+                <h1 class="mb-5 text-center">Ingresar Libro</h1>
+                {% load widget_tweaks %}
+                <form method="post" enctype="multipart/form-data">
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                    
+                        {% render_field form.name class="form-control" %}
+
+                        <label class="form-label" for="form6Example1"
+                          >Nombre del Libro</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                        {% render_field form.author class="form-control" %}
+                        <label class="form-label" for="form6Example2"
+                          >Autor</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                        {% render_field form.editorial class="form-control" %}
+                        <label class="form-label" for="form6Example1"
+                          >Editorial</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                        {% render_field form.used class="form-control" %}
+                        <label class="form-label" for="form6Example2"
+                          >Usado</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                        {% render_field form.price class="form-control" %}
+                        <label class="form-label" for="form6Example1"
+                          >Precio</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                      <div class="form-outline">
+                        {% render_field form.quantity class="form-control" %}
+                        <label class="form-label" for="form6Example2"
+                          >Cantidad</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Text input -->
+                  <div class="form-outline mb-4">
+                    <input type="file" name="txtImage" id="txtImage"><br>
+                    <label class="form-label" for="form6Example3"
+                      >Imagen</label
+                    >
+                  </div>
+
+                  <!-- Text input -->
+                  <div class="form-outline mb-4">
+                    {% render_field form.description class="form-control" %}
+                    <label class="form-label" for="form6Example4"
+                      >Sinopsis</label
+                    >
+                  </div>
+
+                  <!-- Checkbox -->
+                  <div class="form-check d-flex justify-content-center mb-4">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form6Example8"
+                      checked
+                    />
+                    <label class="form-check-label" for="form6Example8">
+                      Usado
+                    </label>
+                  </div>
+
+                  <!-- Submit button -->
+                  <button
+                    type="submit"
+                    class="btn btn-secondary btn-rounded btn-block"
+                  >
+                    Ingresar Libro
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

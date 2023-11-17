@@ -95,24 +95,25 @@ def register_book(request):
 
     if request.method == 'GET':
 
-        return render(request, "crudBooks/register_book.html", {
+        return render(request, "crudBooks/registerBook.html", {
             'form': BooksForm
         })
 
     else:
 
         try:
-            form = BooksForm(request.POST)
+            form = BooksForm(request.POST) and Books(request.FILE)
             new_book = form.save(commit=False)
             new_book.save()
 
             return redirect('products')
 
         except:
-            return render(request, 'crudBooks/register_car.html', {
+            return render(request, 'crudBooks/registerBook.html', {
                 'form': BooksForm,
-                'error': 'Please provide valida data'
+                'error': 'Ingresa datos validos'
             })
+
 
 
 def item(request, id):

@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +33,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    {% block content_crud %}{% endblock content_crud %}
+    
   </head>
   <body>
     <!-- NAVBAR -->
@@ -79,13 +83,8 @@
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="{% url 'register_book' %}"
-                    >Ingresar Libro</a
-                  >
-                </li>
-                <li>
                   <a class="dropdown-item" href="{% url 'mod_book' %}"
-                    >Editar Libros</a
+                    >Administrar Libros</a
                   >
                 </li>
               </ul>
