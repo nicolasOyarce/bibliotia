@@ -11,13 +11,13 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Book image-->
-                    <a href="{% url 'item' book.id %}"><img width="254px" height="381px" loading="lazy" class="card-img-top" src="{{book.image_url}}" alt="{{book.name}}" /></a>
+                    <a href="{% url 'item' book.id %}"><img width="254px" height="330px" loading="lazy" class="card-img-top" src="{{book.image.url}}" alt="{{book.name}}" /></a>
                     <!-- Book details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Book name-->
                             <h4 class="fw-bolder">{{book.name}}</h4>
-                            <h6 class="fw-bolder">{{book.editorial}}</h6>
+                            <p class="fw-bolder">{{book.author}}</p>
                             <!-- Product reviews-->
                             <div class="d-flex justify-content-center small text-warning mb-2">
                                 <div class="bi-star-fill"></div>

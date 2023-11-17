@@ -115,11 +115,15 @@ def register_book(request):
             })
 
 
-def item(request, car_patente):
+def item(request, id):
     
-    car = get_object_or_404(Books, pk = car_patente)
+    book = get_object_or_404(Books, pk = id)
+    book_item = Books.objects.all()
+    book_item_separate = book_item[:4]
+
     return render(request, "crudBooks/item.html", {
-        'car': car
+        'book': book,
+        'book_item': book_item_separate
     })
 
 

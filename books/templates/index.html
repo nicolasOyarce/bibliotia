@@ -23,14 +23,14 @@
                     <div class="card h-100">
 
                         <!-- Product image -->
-                        <img width="254px" height="381px" loading="lazy" class="card-img-top" src="{{book.image_url}}" alt="{{book.name}}" />
+                        <img width="254px" height="381px" loading="lazy" class="card-img-top" src="{{book.image.url}}" alt="{{book.name}}" />
                         
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">{{book.name}}</h5>
-                                <h5 class="fw-bolder">{{book.editorial}}</h5>
+                                <p class="fw-bolder">{{book.author}}</p>
                                 <!-- Product price-->
                                 ${{book.price}}
                             </div>

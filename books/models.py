@@ -14,7 +14,7 @@ class Books(models.Model):
     price       = models.CharField(max_length=20)
     register    = models.DateTimeField(auto_now_add=True)
     quantity    = models.IntegerField()
-    image_url   = models.CharField(max_length=300, blank=False)
+    image       = models.ImageField(upload_to="books_img", null=True)
 
     def __str__(self):
-        return self.name + '-' + self.editorial
+        return self.name + '-' + self.editorial + '-' + self.price
