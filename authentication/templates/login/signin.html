@@ -1,5 +1,4 @@
-
-{% extends 'base/base_login.html' %} 
+{% extends 'base_login.html' %} 
 
 {% block content %}
   {% load widget_tweaks %}
@@ -10,14 +9,6 @@
     </div>
 
     <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesion</h3>
-
-    <!--{% for field in form %}
-      <div class="form-outline mb-4">
-        <input type="{{field.html_name}}" class="form-control form-control-lg" />
-        <label class="form-label" for="{{field.id_for_label}}">{{field.label}}</label>
-      </div>
-    {% endfor %}-->
-
 
     <div class="form-outline mb-4">
       {% render_field form.username class="form-control form-control-lg" %}
