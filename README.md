@@ -57,7 +57,7 @@ Joint project of an ecommers website for the sale of books.
 ## Database Configuration
   Start the PostgreSQL service from the "Service Manager".
 
-  1. Access the PostgreSQL console.
+  1. Access the PostgreSQL console or its executable.
       ```bash
       # Access to the PostgreSQL console
       psql -U postgres
@@ -71,21 +71,21 @@ Joint project of an ecommers website for the sale of books.
   3. Creates a user and assigns permissions.
       ```sql
       CREATE USER user_name WITH PASSWORD 'your_password';
-      ALTER ROLE username SET client_encoding TO 'utf8';
-      ALTER ROLE username SET default_transaction_isolation TO 'read committed';
-      ALTER ROLE username SET timezone TO 'UTC';
-      GRANT ALL PRIVILEGES ON DATABASE your_database_name TO user_name;
+      ALTER DATABASE database OWNER TO user;
       ```
+      
+  4. Create the ".env" file in the base directory.<br>
+      ![image](https://github.com/nicolasOyarce/bibliotia/assets/101960895/27e20064-fbe6-4987-8f15-1d00203ece48)
 
-4. Configured in the settings.py file
-    ```python
-     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'bibliotia',
-            'USER': 'username',
-            'PASSWORD': 'your_password',
-            'HOST': '127.0.0.1',
-            'DATABASE_PORT': '5432',
-        }}
-    ```
+  5. Once the file has been created copy and change the data.
+     ```.env
+      DB_NAME=bibliotia
+      DB_USER=your_username
+      DB_PASS=your_password
+      DB_HOST=localhost
+      DB_PORT=5432
+     ```
+      
+
+
+  
