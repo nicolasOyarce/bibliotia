@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'books',
-    'authentication',
+    'accounts',
     'cart',
 ]
 
@@ -81,11 +82,11 @@ WSGI_APPLICATION = 'bibliotia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bibliotia',
-        'USER': 'nico',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'DATABASE_PORT': '5432',
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASS"),
+        'HOST': config("DB_HOST", default="localhost"),
+        'DATABASE_PORT': config("DB_PORT", default="5432"),
     }}
 
 
@@ -125,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_URL = 'authetication/signin'
+LOGIN_URL = 'accounts/signin'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -69,7 +69,7 @@
               <a class="nav-link" href="{% url 'contact' %}">Contacto /</a>
             </li>
 
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.is_superuser %}
 
             <li class="nav-item dropdown">
               <a
