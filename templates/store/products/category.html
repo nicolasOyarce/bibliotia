@@ -1,0 +1,51 @@
+{% extends "../base.html" %}
+{% load static %} 
+
+{% block content %}
+
+<main>
+  <div class="album py-5" style="background-color: #eeeded">
+    <div class="container">
+      <div class="pb-3 h4">Libros Destacados</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        {% for product in products %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <!-- Image Product -->
+            <img src="{{ product.image.url }}" alt="" class="img-fluid" />
+
+            <div class="card-body">
+              <h3 class="card-text text-center">
+                <a
+                  href="{{ product.get_absolute_url }}"
+                  class="text-decoration-none text-dark"
+                  >{{ product.title }}</a
+                >
+              </h3>
+              <p class="card-text text-center">{{ product.author }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Comprar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Ver
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

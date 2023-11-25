@@ -48,7 +48,7 @@
             <li class="nav-item"><a class="nav-link" href="#">Todas</a></li>
             {% for category in categories %}
               <li>
-                <a class="dropdown-item" href="#"
+                <a class="dropdown-item" href="{{ category.get_absolute_url }}" 
                   >{{ category.name|title }}</a
                 >
               </li>

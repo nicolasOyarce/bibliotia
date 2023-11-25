@@ -1,5 +1,8 @@
+from django.contrib.auth.models import User
 from django.test import TestCase
+
 from store.models import Category, Product
+
 
 # Test Category Model
 class TestCategoriesModel(TestCase):
@@ -12,12 +15,6 @@ class TestCategoriesModel(TestCase):
         """
         data = self.data1
         self.assertTrue(isinstance(data, Category))
-
-    def test_category_model_entry(self):
-        """
-        Test Category model default name
-        """
-        data = self.data1
         self.assertEqual(str(data), 'django')
 
 
@@ -25,7 +22,8 @@ class TestCategoriesModel(TestCase):
 class TestProductsModel(TestCase):
     def setUp(self):
         Category.objects.create(name='django', slug='django')
-        self.data1 = Product.objects.create(category_id=1, title='django beginners', created_by_id=1, slug='django-beginners', price='20.00', image='django')
+        User.objects.create(username='admin')
+        self.data1 = Product.objects.create(category_id=2, title='django beginners', created_by_id=1, slug='django-beginners', price='20.00', image='django')
     
     def test_products_model_entry(self):
         """
@@ -33,10 +31,4 @@ class TestProductsModel(TestCase):
         """
         data = self.data1
         self.assertTrue(isinstance(data, Product))
-    
-    def test_products_model_entry(self):
-        """
-        Test Product model default name
-        """
-        data = self.data1
-        self.assertEqual(str(data), 'django beginners')
+        self.assertEqual(str(data), 'django beginners') 
