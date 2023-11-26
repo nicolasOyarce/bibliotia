@@ -4,7 +4,7 @@ from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from store.models import Category, Product
-from store.views import all_products
+from store.views import products_all
 
 
 class TestViewsResponses(TestCase):
@@ -35,16 +35,17 @@ class TestViewsResponses(TestCase):
 
     def test_homepage_html(self):
         request = HttpRequest()
-        response = all_products(request)
+        response = products_all(request)
         html = response.content.decode('utf8')
         self.assertIn('<title>Inicio</title>', html)
         self.assertTrue(html.startswith('\n<!DOCTYPE html>\n'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_function(self):
-        request = self.factory.get('/item/djando-beginners')
-        response = all_products(request)
+        request = self.factory.get('/djando-beginners')
+        response = products_all(request)
         html = response.content.decode('utf8')
         self.assertIn('<title>Inicio</title>', html)
         self.assertTrue(html.startswith('\n<!DOCTYPE html>\n'))
         self.assertEqual(response.status_code, 200)
+        

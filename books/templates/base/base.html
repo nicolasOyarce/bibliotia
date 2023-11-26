@@ -83,7 +83,7 @@
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="{% url 'mod_book' %}"
+                  <a class="dropdown-item" href=""
                     >Administrar Libros</a
                   >
                 </li>
@@ -94,7 +94,7 @@
           </ul>
 
           <form
-            action="{% url 'shoppingCart' %}"
+            action=""
             class="d-flex"
             style="margin-right: 10px"
           >
@@ -109,12 +109,12 @@
 
 
           <!-- LOGOUT -->
-          <form action="{% url 'logout' %}" class="d-flex">
+          <form action="" class="d-flex">
             <button class="btn btn-outline-dark" type="submit">
               <a
                 style="text-decoration: none"
                 class="bi-cart-fill me-1"
-                href="{% url 'logout' %}"
+                href=""
                 ><i class="fa fa-sign-out" aria-hidden="true" style="color: #000;"></i></a
               >
             </button>
@@ -122,7 +122,7 @@
 
           {% else %}
 
-          <form action="{% url 'signin' %}" class="d-flex">
+          <form action="" class="d-flex">
             <button
               class="btn btn-outline-dark"
               type="submit"
@@ -130,7 +130,7 @@
               <a
                 style="text-decoration: none"
                 class="bi-cart-fill me-1"
-                href="{% url 'signin' %}"
+                href=""
                 ><i
                   style="color: #000; margin-left: 5px"
                   class="fa-solid fa-user icono"

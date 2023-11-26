@@ -4,16 +4,8 @@ from .models import Category, Product
 
 # Create your views here.
 
-# View for the categories
-def categories(request):
-
-    return {
-        'categories': Category.objects.all()
-    }
-
-
 # View for the home page
-def all_products(request):
+def products_all(request):
 
     products = Product.objects.all()
     

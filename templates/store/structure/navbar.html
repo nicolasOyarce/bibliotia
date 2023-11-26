@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href=""
+    <a class="navbar-brand" href="/"
       ><img
         src="../../static/images/bibliotia.png"
         height="45px"
@@ -99,12 +99,12 @@
       {% if user.is_authenticated %}
 
       <!-- LOGOUT -->
-      <form action="{% url 'logout' %}" class="d-flex">
+      <form action="" class="d-flex">
         <button class="btn btn-outline-dark" type="submit">
           <a
             style="text-decoration: none"
             class="bi-cart-fill me-1"
-            href="{% url 'logout' %}"
+            href=""
             ><i
               class="fa fa-sign-out"
               aria-hidden="true"
@@ -116,12 +116,12 @@
 
       {% else %}
 
-      <form action="{% url 'signin' %}" class="d-flex">
+      <form action="" class="d-flex">
         <button class="btn btn-outline-dark" type="submit">
           <a
             style="text-decoration: none"
             class="bi-cart-fill me-1"
-            href="{% url 'signin' %}"
+            href=""
             ><i
               style="color: #000; margin-left: 5px"
               class="fa-solid fa-user icono"
