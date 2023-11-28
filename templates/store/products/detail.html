@@ -1,4 +1,4 @@
-{% extends "../base.html" %} 
+{% extends "../../base.html" %} 
 {% load static %} 
 {% block title %}{% endblock title%} 
 
@@ -34,7 +34,7 @@
               </select>
             </div>
             <div class="col-6 text-start">
-              <button type="button" class="btn btn-secondary btn-sm">
+              <button type="button" id="add-button" value="{{ product.id }}" class="btn btn-danger btn-sm">
                 Agregar al carrito
               </button>
             </div>
@@ -44,5 +44,27 @@
     </div>
   </div>
 </section>
+
+<script>
+
+  $(document).on('click', '#add-button', function(e){
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '{% url "cart:cart_add" %}',
+      data: {
+        productid: $('#add-button').val(),
+        productqty: $('#select option:selected').text(),
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        action: 'post',
+      },
+      success: function (json) {
+        document.getElementById('cart-qty').innerHTML = json.qty;
+      },
+      error: function (xhr, errmsg, err) {}
+    });
+  });
+
+</script>
 
 {% endblock content %}

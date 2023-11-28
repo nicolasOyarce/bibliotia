@@ -7,7 +7,7 @@ from .models import Category, Product
 # View for the home page
 def products_all(request):
 
-    products = Product.objects.all()
+    products = Product.products.all( )
     
     return render(request, 'store/home.html', {
         'products': products

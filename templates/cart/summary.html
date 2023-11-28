@@ -1,0 +1,73 @@
+{% extends "../base.html" %} 
+{% load static %} 
+{% block title %}Carrito de Compras{% endblock title %}
+
+{% block content %}
+<section class="h-100" style="background-color: #eee">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Carrito de compras</h3>
+        </div>
+
+        {% for item in cart %}
+          {% with product=item.product %}
+            <div class="card rounded-3 mb-4">
+              <div class="card-body p-4">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      src="{{ product.image.url }}"
+                      class="img-fluid rounded-3"
+                      alt="Cotton T-shirt"
+                    />
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{ product.title }}</p>
+                    <p class="text-muted">{{ product.author }}</p>
+                  </div>
+
+
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+
+                    <label for="select" class="m-2">Cantidad: </label>
+                    <select id="select{{product.id}}">
+                      <option selected>
+                        {{item.qty}}
+                      </option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                    </select>
+
+                  </div>
+
+
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0">${{ item.price }}</h5>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a type="button" data-index="{{ product.id }}" id="delete-button" class="text-danger"
+                      ><i class="fas fa-trash fa-lg"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endwith %}
+        {% endfor %}
+
+        <div class="card">
+          <div class="card-body">
+            <button type="button" class="btn btn-warning btn-block btn-lg">
+              Proceder con el pago
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

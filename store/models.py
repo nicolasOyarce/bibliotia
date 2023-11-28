@@ -8,7 +8,7 @@ from django.urls import reverse
 class ProductManager(models.Manager):
 
     def get_queryset(self):
-        return super(ProductManager, self).get_queryset().filter(is_active=False)
+        return super(ProductManager, self).get_queryset().filter(in_stock=True)
     
 # Model for the category
 class Category(models.Model):
