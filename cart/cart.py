@@ -19,10 +19,12 @@ class Cart:
         """
         product_id = str(product.id)
 
-        if product_id not in self.cart:
-            self.cart[product_id] = {'price': str(product.price), 'qty': int(qty)}
+        if product_id in self.cart:
+            self.cart[product_id]['qty'] = qty
+        else:
+            self.cart[product_id] = {'price': str(product.price), 'qty': qty}
 
-        self.session.modified = True
+        self.save()
 
     def __iter__(self):
         """
@@ -46,3 +48,35 @@ class Cart:
         Get the cart data and count the qty of items
         """
         return sum(item['qty'] for item in self.cart.values())
+    
+    def delete(self, product):
+        """
+        Delete item from the cart
+        """
+        product_id = str(product)
+
+        if product_id in self.cart:
+            del self.cart[product_id]
+        self.save()
+    
+    def update(self, product, qty):
+        """
+        Update the cart qty
+        """
+        product_id = str(product)
+
+        if product_id in self.cart:
+            self.cart[product_id]['qty'] = qty
+        self.save()
+
+    def get_total_price(self):
+        """
+        Get the cart data and calculate the total price
+        """
+        return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+    
+    def save(self):
+        """
+        Update the session cart
+        """
+        self.session.modified = True

@@ -1,73 +1,143 @@
-{% extends "../base.html" %} 
-{% load static %} 
+{% extends "../base.html" %}
+{% load static %}
+
 {% block title %}Carrito de Compras{% endblock title %}
 
 {% block content %}
-<section class="h-100" style="background-color: #eee">
+
+<main class="h-100" style="background-color: #eee">
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-10">
+
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black">Carrito de compras</h3>
         </div>
 
         {% for item in cart %}
-          {% with product=item.product %}
-            <div class="card rounded-3 mb-4">
-              <div class="card-body p-4">
-                <div class="row d-flex justify-content-between align-items-center">
-                  <div class="col-md-2 col-lg-2 col-xl-2">
-                    <img
-                      src="{{ product.image.url }}"
-                      class="img-fluid rounded-3"
-                      alt="Cotton T-shirt"
-                    />
-                  </div>
-                  <div class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="lead fw-normal mb-2">{{ product.title }}</p>
-                    <p class="text-muted">{{ product.author }}</p>
-                  </div>
+        {% with product=item.product %}
+        
+        <div class="card rounded-3 mb-4 product-item" data-index="{{product.id}}">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
 
-
-                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-
-                    <label for="select" class="m-2">Cantidad: </label>
-                    <select id="select{{product.id}}">
-                      <option selected>
-                        {{item.qty}}
-                      </option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                    </select>
-
-                  </div>
-
-
-                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                    <h5 class="mb-0">${{ item.price }}</h5>
-                  </div>
-                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                    <a type="button" data-index="{{ product.id }}" id="delete-button" class="text-danger"
-                      ><i class="fas fa-trash fa-lg"></i
-                    ></a>
-                  </div>
-                </div>
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img src="{{ product.image.url }}" class="img-fluid rounded-3" alt="ImageBook">
               </div>
+
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">{{ product.title }}</p> 
+                <p class="text-muted">{{ product.author }}</p>
+              </div>
+
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <label for="select">Cantidad:</label>
+
+                <select id="select{{product.id}}">
+                  <option selected>{{item.qty}}</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+
+              </div>
+
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">${{product.price}}</h5>
+              </div>
+
+              <!-- Delete Button -->
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#" class="text-danger delete-button" data-index="{{product.id}}">
+                  <i class="fas fa-trash fa-lg"></i>
+                </a>
+              </div>
+
+              <!-- Update Button -->
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#" class="text-danger update-button" data-index="{{product.id}}">
+                  <i class="fa-solid fa-arrows-rotate" style="color: #1a5fb4;"></i>
+                </a>
+              </div>
+
             </div>
-          {% endwith %}
+
+          </div>
+        
+        </div>
+
+        {% endwith %}
+        
         {% endfor %}
+
+        <div style="text-align:right;" >
+          <h4>Total:</h4>
+          <h2 id="subtotal">${{ cart.get_total_price }}</h2>
+        </div>
 
         <div class="card">
           <div class="card-body">
-            <button type="button" class="btn btn-warning btn-block btn-lg">
-              Proceder con el pago
-            </button>
+            <button type="button" class="btn btn-warning btn-block btn-lg">Pagar</button> 
           </div>
         </div>
+
       </div>
+
     </div>
+
   </div>
-</section>
-{% endblock content %}
+
+</main>
+
+<script>
+
+$(document).on('click', '.delete-button', function(e){
+
+  e.preventDefault();
+  
+  var prodid = $(this).data('index');
+
+  $.ajax({
+    type: 'POST',
+    url: '{% url "cart:cart_delete" %}',
+    data: {
+      productid: prodid,
+      csrfmiddlewaretoken: "{{csrf_token}}", 
+      action: 'post'
+    },
+    success: function(json) {
+      $('.product-item[data-index="' + prodid + '"]').remove();
+      
+      document.getElementById("subtotal").innerHTML = json.subtotal;
+      document.getElementById("cart-qty").innerHTML = json.qty
+      
+    },
+    error: function(xhr, errmsg, err) {}
+  });
+
+});
+
+$(document).on('click', '.update-button', function (e) {
+    e.preventDefault();
+    var prodid = $(this).data('index');
+    $.ajax({
+      type: 'POST',
+      url: '{% url "cart:cart_update" %}',
+      data: {
+        productid: $(this).data('index'),
+        productqty: $('#select' + prodid + ' option:selected').text(),
+        csrfmiddlewaretoken: "{{csrf_token}}",
+        action: 'post'
+      },
+      success: function (json) {
+        document.getElementById("cart-qty").innerHTML = json.qty
+        document.getElementById("subtotal").innerHTML = json.subtotal
+      },
+      error: function (xhr, errmsg, err) {}
+    });
+  })
+
+</script>
+
+{% endblock %}
