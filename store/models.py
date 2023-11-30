@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
@@ -29,7 +30,7 @@ class Category(models.Model):
 # Model for the product
 class Product(models.Model):
     category    = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    created_by  = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_creator')
+    created_by  = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='product_creator')
     title       = models.CharField(max_length=200, db_index=True) 
     author      = models.CharField(max_length=200, db_index=True)
     editorial   = models.CharField(max_length=200, db_index=True)

@@ -1,5 +1,4 @@
 {% load static %}
-{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,10 +24,10 @@
     ></script>
 
     <!--Title-->
-    <title>Login</title>
+    <title>{% block title %}{% endblock title %}</title>
     
     <!-- ICON -->
-    <link rel="shortcut icon" href="../../static/images/bibliotíaiono.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/media/icons/bibliotíaiono.png" type="image/x-icon" />
 
   </head>
   <body>

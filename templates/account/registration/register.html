@@ -1,0 +1,84 @@
+{% extends '../base.html' %} 
+{% load static %}
+{% block title %}Bibliotia - Crear Cuenta{% endblock title %}
+
+{% block content %} {% load widget_tweaks %}
+
+
+<form action="." method="post">
+  {% csrf_token %}
+
+  <div class="d-flex align-items-center mb-3 pb-1">
+    <a href="/"
+      ><span class="h1 fw-bold mb-0"
+        ><img
+          src="/media/icons/bibliotia.png"
+          alt="logo"
+          width="330px"
+          height="90px" /></span
+    ></a>
+  </div>
+
+  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">Crear Cuenta</h3>
+
+  {% if form.errors %}
+  <p>Please correct the following errors:</p>
+  {% for field in form %}
+  {% if field.errors %}
+  <div class="alert alert-danger" role="alert">
+      {{ field.label }}: {{ field.errors|striptags }}
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  <label>{{ form.user_name.label }}<span class="text-muted small">
+          (Campo requerido)</span></label>
+  {{ form.user_name }}
+  <label>{{ form.email.label}}<span class="text-muted small">
+          (Campo requerido)</span></label>
+  {{ form.email }}
+  <label>{{ form.password.label}}<span class="text-muted mb-4">
+          </span></label>
+  <small class="form-text text-muted mb-4 small">
+      At least 8 characters and 1 digit
+  </small>
+  {{ form.password }}
+  <label>{{ form.password2.label}}<span class="text-muted small">
+          (Campo requerido)</span></label>
+  {{ form.password2 }}
+<button class="btn btn-dark btn-block py-2 mb-4 mt-5 fw500 w-100" type="submit">Registrase</button>
+  <p class="text-center">
+      <a href="{% url 'account:login' %}">Ya tienes una cuenta?</a>
+  </p>
+
+
+
+
+  <!--
+  <div class="form-outline mb-4">
+    <label class="form-label">Nombre de usuario</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label">Contraseña</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    {% render_field form.password2 class="form-control form-control-lg" %}
+    <label class="form-label">Confirmar Contraseña</label>
+  </div>
+
+  <div class="pt-1 mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="submit">
+      Crear Cuenta
+    </button>
+  </div>
+
+  <p class="mb-5 pb-lg-2" style="color: #393f81">
+    Ya tienes cuenta?
+    <a href="" style="color: #393f81">Volver</a>
+  </p>-->
+</form>
+
+{% endblock content %}

@@ -1,9 +1,9 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils.module_loading import import_module
-from django.conf import settings
 
 from store.models import Category, Product
 from store.views import products_all

@@ -2,7 +2,7 @@
   <div class="container px-4 px-lg-5">
     <a class="navbar-brand" href="/"
       ><img
-        src="../../static/images/bibliotia.png"
+        src="/media/icons/bibliotia.png"
         height="45px"
         width="180px"
         alt="logo-bibliotia"
@@ -110,7 +110,7 @@
       {% if user.is_authenticated %}
 
       <!-- LOGOUT -->
-      <form action="" class="d-flex">
+      <form action="{% url 'account:logout' %}" class="d-flex">
         <button class="btn btn-outline-dark" type="submit">
           <a
             style="text-decoration: none"
@@ -127,7 +127,7 @@
 
       {% else %}
 
-      <form action="" class="d-flex">
+      <form action="{% url 'account:login' %}" class="d-flex">
         <button class="btn btn-outline-dark" type="submit">
           <a
             style="text-decoration: none"
