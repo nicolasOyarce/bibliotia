@@ -4,11 +4,10 @@ Joint project of an ecommers website for the sale of books.
 ## Prerequisites
   - Python
   - Git
-  - PostgreSQL
   - Visual Studio Code
 
 
-## PostgreSQL Installation
+<!--## PostgreSQL Installation
   - Linux: 
     - Update the package index
       ```bash
@@ -22,7 +21,7 @@ Joint project of an ecommers website for the sale of books.
       
   - Windows:
     
-    - Download and install PostgreSQL from https://www.postgresql.org/download/windows/
+    - Download and install PostgreSQL from https://www.postgresql.org/download/windows/-->
       
 
 ## Basic Installation
@@ -54,7 +53,7 @@ Joint project of an ecommers website for the sale of books.
     pip install -r requirements.txt
     ```
 
-## Database Configuration
+<!--## Database Configuration
   Start the PostgreSQL service from the "Service Manager".
 
   1. Access the PostgreSQL console or its executable.
@@ -84,7 +83,7 @@ Joint project of an ecommers website for the sale of books.
       DB_PASS=your_password
       DB_HOST=localhost
       DB_PORT=5432
-     ```
+     ```-->
       
 
 
