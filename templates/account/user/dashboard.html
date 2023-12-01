@@ -11,7 +11,7 @@
     </div>
     <div class="col-12 d-flex justify-content-between">
       <div>Maneja tus <b>pedidos</b> y informacion personal</div>
-      <div><a href="">Change Details</a></div>
+      <div><a href="{% url 'account:edit_details' %}">Editar Perfil</a></div>
     </div>
     <hr />
   </div>
@@ -41,7 +41,7 @@
 
         </div>
         <div class="text-end">
-          Total paid: <span class="fw-bold">£{{ order.total_paid }}</span>
+          Total paid: <span class="fw-bold">${{ order.total_paid }}</span>
         </div>
       </div>
       <div class="col-md-5 col-lg-4 order-md-last p-0 order-3">

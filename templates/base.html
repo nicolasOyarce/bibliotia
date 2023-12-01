@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Title -->
-    <title>{% block title %} Bibliotia {% endblock title %}</title>
+    <title>Bibliotia - {% block title %}{% endblock title %}</title>
 
     <!-- Icon -->
     <link rel="shortcut icon" href="../media/icons/bibliotíaiono.png" type="image/x-icon">
@@ -64,7 +64,7 @@
   </head>
   <body>
     {% include 'store/structure/navbar.html' %}
-    <div id="content">{% block content %}{% endblock content %}</div>
+    <div id="content" style="margin-bottom: 40px;">{% block content %}{% endblock content %}</div>
     {% include 'store/structure/footer.html' %}
 
     <script
