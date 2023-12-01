@@ -11,12 +11,15 @@ from .forms import RegistrationForm, UserEditForm
 from .models import UserBase
 from .token import account_activation_token
 
-#from orders.views import user_orders
+from orders.views import user_orders
 
 @login_required
 def dashboard(request):
-    #orders = user_orders(request)
-    return render(request, 'account/user/dashboard.html')
+    orders = user_orders(request)
+    return render(request, 'account/user/dashboard.html', {
+        'section': 'profile',
+        'orders': orders
+    })
 
 @login_required
 def edit_details(request):

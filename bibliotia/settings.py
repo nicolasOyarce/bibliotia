@@ -36,12 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
-    'books',
-    'cart',
     'store',
+    'cart',
     'contact',
     'account',
+    'payment',
+    'orders',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -140,5 +141,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# Email settings
+BASKET_SESSION_ID = 'cart'
+
+# Email setting
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+STRIPE_ENDPOINT_SECRET = 'whsec_7c5c0acb6b3b6ce0b90f2e46e511dd42541543951be1c0d3b8718d9df1b12162'
+##sk y pk

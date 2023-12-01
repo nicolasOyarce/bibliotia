@@ -1,6 +1,7 @@
 from decimal import Decimal
 
 from store.models import Product
+from bibliotia import settings
 
 
 class Cart:
@@ -82,3 +83,7 @@ class Cart:
         Update the session cart
         """
         self.session.modified = True
+
+    def clear(self):
+        del self.session['skey']
+        self.save()
