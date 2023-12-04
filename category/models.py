@@ -11,7 +11,7 @@ class Category(models.Model):
         ordering = ('category_name', ) 
     
     def get_url(self):
-        return reverse('products_by_category', args=[self.slug])
+        return reverse('store:products_by_category', args=[self.slug])
     
     def __str__(self):
         return self.category_name

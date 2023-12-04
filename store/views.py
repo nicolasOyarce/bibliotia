@@ -29,12 +29,12 @@ def all_products(request, category_slug=None):
         'products_count': products_count,
     })
 
-def product_detail(request, category_slug, product_slug):
+def product_detail(request, slug):
     """
     View for the product detail page
     """
     try:
-        single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+        single_product = Product.objects.get(slug=slug)
     except Exception as e:
         raise e
     return render(request, 'store/product_detail.html', {

@@ -1,5 +1,6 @@
 {% extends '../base.html' %}
 {% load static %}
+{% load humanize %}
 {% block title %} - Productos{% endblock title %}
 
 {% block content %}
@@ -34,7 +35,7 @@
 				<ul class="list-menu">
 				<li><a href="{% url 'store:all_products' %}">Todos los libros</a></li>
                 {% for category in links %}
-				<li><a href="">{{ category.category_name }}</a></li>
+				<li><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
                 {% endfor%}
 				</ul>
 
@@ -133,17 +134,17 @@
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap"> 
-				<img src="{{ product.image.url }}">
+				<a href="{{ product.get_url }}"><img src="{{ product.image.url }}"></a>
 				
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<a href="{{ product.get_url }}" class="title">{{ product.title }}</a>
 					<div class="price-wrap mt-2">
-						<span class="price">${{ product.price }}</span>
+						<span class="price">${{ product.price|intcomma }}</span>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="#" class="btn btn-block btn-primary">Agregar al carrito</a>	
+				<a href="{% url 'cart:cart_add' product.id %}" class="btn btn-block btn-primary">Agregar al carrito</a>	
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
