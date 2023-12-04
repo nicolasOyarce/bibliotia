@@ -36,13 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'category',
+    'accounts',
     'store',
-    'cart',
-    'contact',
-    'account',
-    'payment',
-    'orders',
-    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -68,14 +64,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'store.context_processors.categories',
-                'cart.context_processors.cart',
+                'category.context_processors.menu_links',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'bibliotia.wsgi.application'
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
@@ -123,14 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR / 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'bibliotia/static')
 ]
-
-AUTH_USER_MODEL = 'account.UserBase'
-LOGIN_REDIRECT_URL = '/account/dashboard'
-LOGIN_URL = 'account/signin'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -141,10 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-BASKET_SESSION_ID = 'cart'
 
-# Email setting
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STRIPE_ENDPOINT_SECRET = 'whsec_7c5c0acb6b3b6ce0b90f2e46e511dd42541543951be1c0d3b8718d9df1b12162'
-##sk y pk
+

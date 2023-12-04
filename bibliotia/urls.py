@@ -6,13 +6,8 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('store.urls', namespace='store')),
-    path('cart/', include('cart.urls', namespace='cart')),
-    path('contact/', include('contact.urls')),
-    path('account/', include('account.urls', namespace='account')),
-    path('payment/', include('payment.urls', namespace='payment')),
-    path('orders/', include('orders.urls', namespace='orders')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
