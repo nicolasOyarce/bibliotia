@@ -1,5 +1,7 @@
 from django.db import models
+
 from store.models import Product
+
 
 class Cart(models.Model):
     cart_id    = models.CharField(max_length=250, blank=True)

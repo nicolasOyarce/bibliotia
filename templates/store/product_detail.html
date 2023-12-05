@@ -43,8 +43,15 @@
 		</div> <!-- input-group.// -->
 	</div> <!-- col.// -->
 	<hr>
-	<a href="{% url 'cart:cart_add' single_product.id %}" class="btn  btn-primary"> <span class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>  </a>
-
+	{% if single_product.stock <= 0 %}
+		<h4 class="text-danger">Sin stock</h4>
+	{% else %}
+		{% if in_cart %}
+			<a href="{% url 'cart:cart' %}" class="btn btn-success"> <span class="text">Producto agregado</span> <i class="fas fa-check"></i>  </a>
+		{% else %}
+			<a href="{% url 'cart:cart_add' single_product.id %}" class="btn  btn-primary"> <span class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>  </a>
+		{% endif %}	
+	{% endif %}
 </article> <!-- product-info-aside .// -->
 		</main> <!-- col.// -->
 	</div> <!-- row.// -->

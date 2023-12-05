@@ -1,5 +1,6 @@
 from .models import Category
 
+
 def menu_links(request):
     """
     Context processor for the menu links
