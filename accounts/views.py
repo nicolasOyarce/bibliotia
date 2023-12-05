@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def register(request):
+    """
+    View for the register page
+    """
+    return render(request, 'accounts/register.html')

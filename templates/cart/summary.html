@@ -66,7 +66,7 @@
 			</div> <!-- price-wrap .// -->
 		</td>
 		<td class="text-right"> 
-		<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="btn btn-danger"> Eliminar</a>
+		<a href="{% url 'cart:cart_remove' cart_item.product.id %}" onclick="return confirm('Estas seguro de eliminar este articulo?')" class="btn btn-danger"> Eliminar</a>
 		</td>
 	</tr>
 	{% endfor %}
@@ -96,8 +96,8 @@
 				<p class="text-center mb-3">
 					<img src="{% static './images/misc/payments.png' %}" height="26">
 				</p>
-				<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
-				<a href="{% url 'store:all_products' %}" class="btn btn-light btn-block">Continue Shopping</a>
+				<a href="./place-order.html" class="btn btn-primary btn-block"> Ir a pagar </a>
+				<a href="{% url 'store:all_products' %}" class="btn btn-light btn-block">Continuar comprando</a>
 			</div> <!-- card-body.// -->
 			</div> <!-- card.// -->
 

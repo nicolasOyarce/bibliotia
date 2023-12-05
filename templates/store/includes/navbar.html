@@ -40,11 +40,11 @@
 			</div>
 		</div>  <!-- category-wrap.// -->
 	</div> <!-- col.// -->
-	<a href="{% url 'store:all_products' %}" class="btn btn-outline-primary" style="background-color: #0B5A74;color: #fff;">Tienda</a>
+	<a href="{% url 'store:all_products' %}" class="btn btn-outline-primary" style="background-color: #0B5A74;color: #fff;">Catalogo</a>
 	<div class="col-lg  col-md-6 col-sm-12 col">
-		<form action="#" class="search">
+		<form action="{% url 'store:search' %}" class="search" method="get">
 			<div class="input-group w-100">
-			    <input type="text" class="form-control" style="width:60%;" placeholder="Buscar">
+			    <input type="text" class="form-control" style="width:60%;" placeholder="Buscar" name="keyword">
 			    
 			    <div class="input-group-append">
 			      <button class="btn btn-primary" type="submit" style="background-color: #0B5A74;color: #fff;">
