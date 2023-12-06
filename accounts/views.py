@@ -51,7 +51,6 @@ def register(request):
 
             redirect_url = reverse('accounts:login') + '?command=verification&email=' + email
             return redirect(redirect_url)
-
         
     else:
         form = RegistrationForm()
@@ -72,9 +71,10 @@ def login_view(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            messages.success(request, 'Bienvenido, has iniciado sesion correctamente')
+            return redirect('accounts:dashboard')
         else:
-            messages.error(request, 'Credenciales invalidas')
+            messages.error(request, 'Credenciales invalidas', extra_tags='danger')
             return redirect('accounts:login')
         
     return render(request, 'accounts/login.html')
@@ -111,5 +111,5 @@ def activate(request, uidb64, token):
         messages.success(request, 'Felicidades!!!, tu cuenta a sido activada')
         return redirect('accounts:login')
     else:
-        messages.error(request, 'Link de activacion invalido')
+        messages.error(request, 'Link de activacion invalido', extra_tags='danger')
         return redirect('accounts:register')

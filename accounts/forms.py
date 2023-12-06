@@ -38,3 +38,9 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Las contraseñas no coinciden"
             )
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if Account.objects.filter(email=email).exists():
+            raise forms.ValidationError("El correo ingresado ya esta en uso")
+        return email

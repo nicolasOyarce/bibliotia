@@ -7,12 +7,13 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-conten padding-y bg">
 
+{% include 'store/includes/alerts.html' %}
 <div class="container">
 	<div class="row">
 	<aside class="col-md-3">
 		<!--   SIDEBAR   -->
 		<ul class="list-group">
-			<a class="list-group-item active" href="#"> My order history </a>
+			<a class="list-group-item active" href="#"> Mi historial </a>
 			<a class="list-group-item" href="#"> Transactions </a>
 			<a class="list-group-item" href="#"> Return and refunds </a>
 			<a class="list-group-item" href="#">Settings </a>
@@ -20,7 +21,7 @@
 			<a class="list-group-item" href="#"> Received orders </a>
 		</ul>
 		<br>
-		<a class="btn btn-light btn-block" href="#"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
+		<a class="btn btn-light btn-block" href="{% url 'accounts:logout' %}"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
 		<!--   SIDEBAR .//END   -->
 	</aside>
 	<main class="col-md-9">
