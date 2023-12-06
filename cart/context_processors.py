@@ -1,6 +1,7 @@
 from .models import Cart, CartItem
 from .views import _cart_id
 
+
 def counter(request):
     """
     A context processor to access the cart item count
