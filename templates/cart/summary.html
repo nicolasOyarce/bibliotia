@@ -47,14 +47,20 @@
 		</td>
 		<td> 
 		<!-- col.// -->
-		<div class="col"> 
+		<div class="col">
 			<div class="input-group input-spinner">
 				<div class="input-group-prepend">
-				<a href="{% url 'cart:cart_decrement' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
+				<a href="{% url 'cart:cart_decrement' cart_item.product.id cart_item.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
 				</div>
 				<input type="text" class="form-control"  value="{{ cart_item.quantity }}">
 				<div class="input-group-append">
-				<a href="{% url 'cart:cart_add' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </a>
+					<form action="{% url 'cart:cart_add' cart_item.product.id %}" method="POST">
+						{% csrf_token %}
+						{% for item in cart_item.variations.all %}
+							<input type="hidden" name="{{ item.variation_category | lower }}" value="{{ item.variation_value | capfirst }}">
+						{% endfor %}
+						<button class="btn btn-light" type="submit" id="button-minus"> <i class="fa fa-plus"></i> </button>
+					</form>
 				</div>
 			</div> <!-- input-group.// -->
 		</div> <!-- col.// -->
@@ -66,7 +72,7 @@
 			</div> <!-- price-wrap .// -->
 		</td>
 		<td class="text-right"> 
-		<a href="{% url 'cart:cart_remove' cart_item.product.id %}" onclick="return confirm('Estas seguro de eliminar este articulo?')" class="btn btn-danger"> Eliminar</a>
+		<a href="{% url 'cart:cart_remove' cart_item.product.id cart_item.id %}" onclick="return confirm('Estas seguro de eliminar este articulo?')" class="btn btn-danger"> Eliminar</a>
 		</td>
 	</tr>
 	{% endfor %}

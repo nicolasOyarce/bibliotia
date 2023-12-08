@@ -50,9 +50,12 @@ def product_detail(request, slug):
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
     except Exception as e:
         raise e
+    
+    stock_range = range(1, single_product.stock + 1)
     return render(request, 'store/product_detail.html', {
         'single_product': single_product,
         'in_cart': in_cart,
+        'stock_range': stock_range,
     })
 
 def search(request):   
