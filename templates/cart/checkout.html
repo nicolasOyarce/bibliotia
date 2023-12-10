@@ -2,7 +2,7 @@
 {% load static %}
 {% load humanize %}
 
-{% block title %} - Carrito de compras{% endblock title %}
+{% block title %} - Facturacion{% endblock title %}
 
 {% block content %}
 <section class="section-content padding-y bg">
@@ -14,8 +14,8 @@
 	<aside class="col-lg-6">
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title mb-4">Direccion</h4>
-    <form action="" method="POST">
+    <h4 class="card-title mb-4">Direccion de Facturacion</h4>
+    <form action="{% url 'orders:place_order' %}" method="POST">
       {% csrf_token %}
       <div class="form-row">
         <div class="col form-group">
@@ -50,7 +50,7 @@
         </div>
         <div class="col form-group">
           <label for="">Comuna</label>
-          <input type="text" name="state" class="form-control" required>
+          <input type="text" name="comuna" class="form-control" required>
         </div>
         </div>
         <div class="form-row">
