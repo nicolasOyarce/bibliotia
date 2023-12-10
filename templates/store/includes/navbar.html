@@ -6,12 +6,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTop4">
-    <ul class="navbar-nav mr-auto">
-    	<li class="nav-item dropdown">
-		 	<a href="https://github.com/nicolasOyarce" class="nav-link">  </a>
-		    
-		</li>
-    </ul>
+		<ul class="navbar-nav mr-auto">
+
+			{% if user.is_authenticated and user.is_superuser %}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Administracion</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{% url 'management:management_users' %}">Usuarios</a>
+						<a class="dropdown-item" href="{% url 'management:management_products' %}">Libros</a>
+						<a class="dropdown-item" href="{% url 'management:management_categories' %}">Categorias</a>
+						<a class="dropdown-item" href="{% url 'management:management_orders' %}">Ordenes</a>
+					</div>
+				</li>
+			{% endif %}
+
+		</ul>
     <ul class="navbar-nav">
 		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Contacto </a></li>
 		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Telefono </a></li>
