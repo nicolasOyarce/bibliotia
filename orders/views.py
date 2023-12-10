@@ -14,7 +14,7 @@ import datetime
 def payments(request):
     """
     This view is called when the user clicks on the 'Place Order' button.
-    """
+    """         
     body = json.loads(request.body)
     order = Order.objects.get(user=request.user, is_ordered=False, order_number=body['orderID'])
 
@@ -166,4 +166,4 @@ def order_complete(request):
         }
         return render(request, 'orders/order_complete.html', context)
     except (Payment.DoesNotExist, Order.DoesNotExist):
-        return redirect('home')
+        return redirect('/')
