@@ -113,8 +113,11 @@ def dashboard(request):
     """
     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
     orders_count = orders.count()
+
+    userprofile = UserProfile.objects.get(user_id=request.user.id)
     return render(request, 'accounts/dashboard.html',{
         'orders_count': orders_count,
+        'userprofile': userprofile
     })
 
 def activate(request, uidb64, token):
@@ -251,14 +254,14 @@ def change_password(request):
                 user.set_password(new_password)
                 user.save()
                 # auth.logout(request)
-                messages.success(request, 'Password updated successfully.')
-                return redirect('change_password')
+                messages.success(request, 'Contraseña actulizada correctamente.', extra_tags='success')
+                return redirect('accounts:change_password')
             else:
-                messages.error(request, 'Please enter valid current password')
-                return redirect('change_password')
+                messages.error(request, 'La contraseña actual no es valida ', extra_tags='danger')
+                return redirect('accounts:change_password')
         else:
-            messages.error(request, 'Password does not match!')
-            return redirect('change_password')
+            messages.error(request, 'Las contraseña no coinsiden!', extra_tags='danger')
+            return redirect('accounts:change_password')
     return render(request, 'accounts/user/change_password.html')
 
 
