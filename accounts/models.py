@@ -46,10 +46,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     username   = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=150, blank=True)
     last_name  = models.CharField(max_length=150, blank=True)
-    # Delivery details
     phone_number   = models.CharField(max_length=15, blank=True)
-    address_line   = models.CharField(max_length=150, blank=True)
-    town_city      = models.CharField(max_length=150, blank=True)
     # User Status
     is_admin     = models.BooleanField(default=False)
     is_active    = models.BooleanField(default=False)
@@ -89,3 +86,16 @@ class Account(AbstractBaseUser, PermissionsMixin):
         help_text='Specific permissions for this user.',
         related_name='account_user_permissions',  
     )
+
+class UserProfile(models.Model):
+    user            = models.OneToOneField(Account, on_delete=models.CASCADE)
+    address_line_1  = models.CharField(blank=True, max_length=100)
+    profile_picture = models.ImageField(blank=True, upload_to='userprofile')
+    city            = models.CharField(blank=True, max_length=20)
+    comuna          = models.CharField(blank=True, max_length=20)
+
+    def __str__(self):
+        return self.user.first_name
+
+    def full_address(self):
+        return f'{self.address_line_1}'
