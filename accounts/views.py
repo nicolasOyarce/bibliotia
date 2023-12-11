@@ -225,16 +225,16 @@ def edit_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
-            return redirect('accounts:edit_profile')
+            return redirect('edit_profile')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=userprofile)
-
-    return render(request, 'accounts/user/edit_profile.html', {
+    context = {
         'user_form': user_form,
         'profile_form': profile_form,
         'userprofile': userprofile,
-    })
+    }
+    return render(request, 'accounts/user/edit_profile.html', context)
 
 @login_required
 def change_password(request):
