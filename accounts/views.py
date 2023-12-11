@@ -3,20 +3,19 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.shortcuts import redirect, render
-from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.urls import reverse
-from django.shortcuts import get_object_or_404
-from .models import UserProfile
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
-from .forms import RegistrationForm, UserForm, UserProfileForm
-from .models import Account
 from cart.models import Cart, CartItem
 from cart.views import _cart_id
 from orders.models import Order, OrderProduct
+
+from .forms import RegistrationForm, UserForm, UserProfileForm
+from .models import Account, UserProfile
 
 
 def register(request):
@@ -114,10 +113,8 @@ def dashboard(request):
     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
     orders_count = orders.count()
 
-    userprofile = UserProfile.objects.get(user_id=request.user.id)
     return render(request, 'accounts/dashboard.html',{
         'orders_count': orders_count,
-        'userprofile': userprofile
     })
 
 def activate(request, uidb64, token):
@@ -228,16 +225,16 @@ def edit_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
-            return redirect('accounts:edit_profile')
+            return redirect('edit_profile')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=userprofile)
-
-    return render(request, 'accounts/user/edit_profile.html', {
+    context = {
         'user_form': user_form,
         'profile_form': profile_form,
         'userprofile': userprofile,
-    })
+    }
+    return render(request, 'accounts/user/edit_profile.html', context)
 
 @login_required
 def change_password(request):

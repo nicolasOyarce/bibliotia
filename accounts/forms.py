@@ -1,6 +1,8 @@
 from django import forms
 
 from .models import Account, UserProfile
+from django.contrib.auth import password_validation
+from django.core.exceptions import ValidationError
 
 
 class RegistrationForm(forms.ModelForm):
@@ -38,6 +40,13 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Las contraseñas no coinciden"
             )
+        
+        try:
+            password_validation.validate_password(password, self.instance)
+        except ValidationError as e:
+            self.add_error('password', e)
+
+        return cleaned_data
     
     def clean_email(self):
         email = self.cleaned_data.get('email')

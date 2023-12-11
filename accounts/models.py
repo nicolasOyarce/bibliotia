@@ -6,6 +6,7 @@ from django.db import models
 class CustomAccountManager(BaseUserManager):
 
     def create_user(self, email, first_name, last_name, username, password=None):
+
         if not email:
             raise ValueError("Direccion de correo electronico obligatoria")
         
@@ -18,7 +19,6 @@ class CustomAccountManager(BaseUserManager):
             last_name = last_name,
             username = username
         )
-
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -42,11 +42,11 @@ class CustomAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser, PermissionsMixin):
 
-    email      = models.EmailField(max_length=150, unique=True)
-    username   = models.CharField(max_length=150, unique=True)
-    first_name = models.CharField(max_length=150, blank=True)
-    last_name  = models.CharField(max_length=150, blank=True)
-    phone_number   = models.CharField(max_length=15, blank=True)
+    email        = models.EmailField(max_length=150, unique=True)
+    username     = models.CharField(max_length=150, unique=True)
+    first_name   = models.CharField(max_length=150, blank=True)
+    last_name    = models.CharField(max_length=150, blank=True)
+    phone_number = models.CharField(max_length=15, blank=True)
     # User Status
     is_admin     = models.BooleanField(default=False)
     is_active    = models.BooleanField(default=False)

@@ -1,15 +1,17 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-from .forms import OrderForm
-from .models import Order, OrderProduct
-from store.models import Product, Variation
-from .models import Payment
-from cart.models import CartItem
-import json
-from django.http import JsonResponse
-from django.core.mail import EmailMessage
-from django.template.loader import render_to_string
 import datetime
+import json
+
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.template.loader import render_to_string
+
+from cart.models import CartItem
+from store.models import Product, Variation
+
+from .forms import OrderForm
+from .models import Order, OrderProduct, Payment
+
 
 def payments(request):
     """

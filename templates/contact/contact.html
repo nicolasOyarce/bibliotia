@@ -1,0 +1,42 @@
+{% extends '../base.html' %} 
+{% block title %}Contacto{% endblock %} 
+
+{% block content %}
+<main class="d-flex justify-content-center">
+
+  <section class="py-5 w-75">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+        {% include 'includes/alerts.html' %}
+          <h2 class="mb-4">Contacta con la Librería</h2>
+          <form method="post" action="{% url 'contact:contact' %}">
+            {% csrf_token %}
+            
+            <!-- formulario -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre Completo:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Asunto (Título del Libro, Consulta, etc.):</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Mensaje:</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %} 

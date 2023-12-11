@@ -1,7 +1,7 @@
-from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 
 from store.models import Product, Variation
 
@@ -183,7 +183,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.product.price * cart_item.quantity)
             quantity += cart_item.quantity
-        send = (2 * total)/100
+        send = 3000
         grand_total = total + send
     except ObjectDoesNotExist:
         pass #just ignore
@@ -212,7 +212,7 @@ def checkout(request, total=0, quantity=0, cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.product.price * cart_item.quantity)
             quantity += cart_item.quantity
-        send = (2 * total)/100
+        send = 3000
         grand_total = total + send
     except ObjectDoesNotExist:
         pass #just ignore

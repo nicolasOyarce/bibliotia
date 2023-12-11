@@ -1,0 +1,102 @@
+{% extends "../../base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %} - Editar producto{% endblock title %}
+
+{% block content %}
+
+<section class="intro">
+    <div
+      class="bg-image-vertical h-100"
+    >
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+              <div class="card" style="border-radius: 1rem;margin-top: 70px;margin-bottom: 30px;" >
+                <div class="card-body p-5">
+                  <h1 class="mb-5 text-center">Editar Libro</h1>
+                  {% load widget_tweaks %}
+                  
+                  <form method="post" enctype="multipart/form-data">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.title }}
+                            <label class="form-label" for="{{ form.brand.id_for_label }}" style="display: block; margin-top: 5px;">Titulo</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.author }}
+                            <label class="form-label" for="{{ form.model.id_for_label }}" style="display: block; margin-top: 5px;">Autor</label>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="row">
+                      <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.editorial }}
+                            <label class="form-label" for="{{ form.age.id_for_label }}" style="display: block; margin-top: 5px;">Editorial</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.stock }}    
+                            <label class="form-label" for="{{ form.color.id_for_label }}" style="display: block; margin-top: 5px;">Stock</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.price }}
+                            <label class="form-label" for="{{ form.type_car.id_for_label }}" style="display: block; margin-top: 5px;">Precio</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.image }}
+                            <label class="form-label" for="{{ form.price.id_for_label }}" style="display: block; margin-top: 5px;">Imagen</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.category }}
+                            <label class="form-label" for="{{ form.price.id_for_label }}" style="display: block; margin-top: 5px;">Categoria</label>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="form-outline form-white mb-4">
+                            {{ form.is_available }}
+                            <label class="form-label" for="{{ form.price.id_for_label }}" style="display: block; margin-top: 5px;">Imagen</label>
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-outline mb-4">
+                      {% render_field form.description class="form-control" %}
+                      <label class="form-label" for="form6Example4"
+                        >Descripcion</label
+                      >
+                    </div>
+  
+                    <!-- Submit button -->
+                    <button
+                      type="submit"
+                      class="btn btn-secondary btn-rounded btn-block"
+                    >
+                    Editar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
