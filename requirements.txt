@@ -23,7 +23,6 @@ sqlparse==0.4.4
 stripe==7.7.0
 stripe3==0.0.0
 typing_extensions==4.8.0
-boto3
-django-storages
-psycopg2-binary
+django-storages==1.14.2
+psycopg2-binary==2.9.9
 urllib3==2.1.0
