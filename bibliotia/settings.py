@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'widget_tweaks',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +88,13 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME':'postgres',
+         'USER':'Bibliotia',
+         'PASSWORD':'Bibliotia20.',
+         'HOST':'bibliotiadb.cqcxtt37oaan.us-east-2.rds.amazonaws.com',
+         'PORT':'5432'
+        
     }
 }
 
@@ -155,6 +161,16 @@ EMAIL_HOST_USER = 'bibliotia1@gmail.com'
 EMAIL_HOST_PASSWORD = 'ueyr xxiv ffzs iohx'
 EMAIL_USE_TLS = True
 
+AWS_ACCESS_KEY_ID = 'AKIARL23M7EQ32ORVEMK'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bibliotias3'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_LOCATION = 'static'
