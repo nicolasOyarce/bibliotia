@@ -1,4 +1,4 @@
-{% extends "../base.html" %} 
+{% extends "../../base.html" %} 
 {% load static %} 
 {% load humanize %} 
 {% block title %} - Lista Usuarios{% endblock title %}
@@ -203,8 +203,7 @@ $(document).ready(function(){
                             <td>{{ user.is_active }}</td>
                             <td>{{ user.is_superuser }}</td>
                             <td>
-                                <a href="" class="edit" title="Editar" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                <a href="" class="delete" title="Eliminar" data-toggle="tooltip"><i class="fas fa-trash" style="color: #E34724;"></i></a>
+                                <a href="{% url 'management:user_delete' user.id %}" class="delete" title="Eliminar" data-toggle="tooltip"><i class="fas fa-trash" style="color: #E34724;"></i></a>
                             </td>
                         </tr> 
                         

@@ -1,7 +1,7 @@
-{% extends "../base.html" %} 
+{% extends "../../base.html" %} 
 {% load static %} 
 {% load humanize %} 
-{% block title %} - Lista Productos{% endblock title %}
+{% block title %} - Categorias{% endblock title %}
 
 
 {% block content_crud %}
@@ -175,10 +175,10 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h2>Bibliotia - <b>Lista libros</b></h2>
+                        <h2>Bibliotia - <b>Lista categorias</b></h2>
                     </div>
                     <div class="col-sm-4" style="text-align: right;">
-                        <form action="">
+                        <form action="{% url 'management:category_add' %}">
                             <button type="submit" class="btn btn-info add-new">
                                 <i class="fa fa-plus"></i> Agregar
                             </button>
@@ -191,29 +191,19 @@ $(document).ready(function(){
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Titulo</th>
-                        <th>Autor</th>
-                        <th>Editorial</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Imagen</th>
+                        <th>Colegio</th>
                     </tr>
                 </thead>
                 <tbody>
                     
-                    {% for product in products %}
+                    {% for category in categories %}
                         
                          <tr>
-                            <td>{{ product.id }}</td>
-                            <td>{{ product.title }}</td>
-                            <td>{{ product.author }}</td>
-                            <td>{{ product.editorial }}</td>
-                            <td>{{ product.stock }}</td>
-                            <td>{{ product.price }}</td>
-                            <td><img width="150px" height="180px" src="{{ product.image.url }}" alt="{{ product.title }}"></td>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.category_name }}</td>
                             <td>
-                                <a href="" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a href="{% url 'management:category_edit' category.id %}" class="edit" title="Editar" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                <a href="{% url 'management:category_delete' category.id %}" class="delete" title="Eliminar" data-toggle="tooltip"><i class="fas fa-trash" style="color: #E34724;"></i></a>
                             </td>
                         </tr> 
                         
