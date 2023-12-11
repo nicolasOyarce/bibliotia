@@ -1,5 +1,5 @@
 {% extends '../../base.html' %}
-
+{% load humanize %}
 
 {% block content %}
 
@@ -31,11 +31,11 @@
 				  <tbody>
 						{% for order in orders %}
 				    <tr>
-				      <th scope="row"><a href="{% url 'accounts:order_detail' order.order_number %}">{{order.order_number}}</a></th>
-				      <td>{{order.full_name}}</td>
-				      <td>{{order.phone}}</td>
-				      <td>${{order.order_total}}</td>
-							<td>{{order.created_at}}</td>
+				      <th scope="row"><a href="{% url 'accounts:order_detail' order.order_number %}">{{ order.order_number }}</a></th>
+				      <td>{{ order.full_name }}</td>
+				      <td>{{ order.phone }}</td>
+				      <td>${{ order.order_total|intcomma }}</td>
+							<td>{{ order.created_at }}</td>
 				    </tr>
 				{% endfor %}
 

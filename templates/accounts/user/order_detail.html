@@ -1,5 +1,6 @@
 {% extends '../../base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
@@ -66,15 +67,15 @@
                                           					{% endif %}
                                           				</p>
                                                 </td>
-                                                <td class="text-center">{{item.quantity}}</td>
-                                                <td class="text-center">${{item.product_price}}</td>
+                                                <td class="text-center">{{ item.quantity }}</td>
+                                                <td class="text-center">${{ item.product_price|intcomma }}</td>
                                             </tr>
                                           {% endfor %}
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th colspan="2" class="text-right">Sub Total:</th>
-                                                <th class="text-center">${{subtotal}}</th>
+                                                <th class="text-center">${{ subtotal|intcomma }}</th>
                                             </tr>
                                         </tfoot>
                                     </table>
