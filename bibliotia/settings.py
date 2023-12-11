@@ -92,8 +92,7 @@ DATABASES = {
          'NAME':'postgres',
          'USER':'Bibliotia',
          'PASSWORD':'Bibliotia20.',
-         'HOST':'bibliotiadb.cqcxtt37oaan.us-east-2.rds.amazonaws.com',
-         'PORT':'5432'
+         'HOST':'bibliotiadb.cqcxtt37oaan.us-east-2.rds.amazonaws.combibliotiadb2.cqcxtt37oaan.us-east-2.rds.amazonaws.com5432'
         
     }
 }
