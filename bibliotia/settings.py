@@ -89,7 +89,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME':'postgres',
+         'NAME':'bibliotia2',
          'USER':'Bibliotia',
          'PASSWORD':'Bibliotia20.',
          'HOST':'bibliotiadb.cqcxtt37oaan.us-east-2.rds.amazonaws.combibliotiadb2.cqcxtt37oaan.us-east-2.rds.amazonaws.com5432'
