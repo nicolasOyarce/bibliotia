@@ -7,3 +7,4 @@ typing_extensions==4.8.0
 boto3
 django-storages
 psycopg2-binary
+django-widget-tweaks
