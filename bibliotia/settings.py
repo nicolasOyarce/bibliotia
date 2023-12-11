@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=True)
 
-ALLOWED_HOSTS = ['3.145.110.229','ec2-3-145-110-229.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['bibliotia-env.eba-852ktgbv.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
