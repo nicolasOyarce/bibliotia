@@ -1,7 +1,8 @@
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         Group, Permission, PermissionsMixin)
 from django.db import models
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class CustomAccountManager(BaseUserManager):
 
@@ -90,6 +91,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
 class UserProfile(models.Model):
     user            = models.OneToOneField(Account, on_delete=models.CASCADE)
     address_line_1  = models.CharField(blank=True, max_length=100)
+    profile_picture = models.ImageField(blank=True, upload_to='userprofile', default='userprofile/default.jpg')
     city            = models.CharField(blank=True, max_length=20)
     comuna          = models.CharField(blank=True, max_length=20)
 
@@ -98,3 +100,8 @@ class UserProfile(models.Model):
 
     def full_address(self):
         return f'{self.address_line_1}'
+
+@receiver(post_save, sender=Account)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)

@@ -48,6 +48,7 @@ def product_detail(request, slug):
     """
     try:
         single_product = Product.objects.get(slug=slug)
+        products = Product.objects.all().filter(category=single_product.category)[:4]
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
     except Exception as e:
         raise e
@@ -57,6 +58,7 @@ def product_detail(request, slug):
         'single_product': single_product,
         'in_cart': in_cart,
         'stock_range': stock_range,
+        'products': products,
     })
 
 def search(request):   
