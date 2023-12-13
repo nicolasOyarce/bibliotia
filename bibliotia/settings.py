@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-from decouple import config
 from django.contrib.messages import constants as messages
 
 # Quick-start development settings - unsuitable for production
@@ -22,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-z)fk=va9*wv6k883z%e7@9(=vkdv-hop^-*=k0#q151_pt1l^$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = True
 
-ALLOWED_HOSTS = ['bibliotia-deploy-env.eba-f5wmudeg.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -45,9 +44,7 @@ INSTALLED_APPS = [
     'store',
     'cart',
     'orders',
-    'contact',
     'widget_tweaks',
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -90,12 +87,8 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME':'bibliotiadb5',
-         'USER':'Bibliotia',
-         'PASSWORD':'Bibliotia20.',
-         'HOST':'bibliotiadb5.cqcxtt37oaan.us-east-2.rds.amazonaws.com'
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -159,19 +152,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bibliotia1@gmail.com'
-EMAIL_HOST_PASSWORD = 'jmir hvug lwfs rhpl'
+EMAIL_HOST_PASSWORD = 'ueyr xxiv ffzs iohx'
 EMAIL_USE_TLS = True
-
-AWS_ACCESS_KEY_ID = 'AKIARL23M7EQ32ORVEMK'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bibliotias3'
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = 'us-east-2'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-AWS_S3_VERITY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_LOCATION = 'static'

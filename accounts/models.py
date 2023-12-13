@@ -90,7 +90,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
 class UserProfile(models.Model):
     user            = models.OneToOneField(Account, on_delete=models.CASCADE)
     address_line_1  = models.CharField(blank=True, max_length=100)
-    profile_picture = models.ImageField(blank=True, upload_to='userprofile')
     city            = models.CharField(blank=True, max_length=20)
     comuna          = models.CharField(blank=True, max_length=20)
 

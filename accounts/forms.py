@@ -1,8 +1,8 @@
 from django import forms
-
-from .models import Account, UserProfile
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
+
+from .models import Account, UserProfile
 
 
 class RegistrationForm(forms.ModelForm):

@@ -10,7 +10,7 @@
 <div class="container">
 
 <div class="intro-banner-wrap">
-	<img src="/media/banners.jpg" class="img-fluid rounded">
+	<img src="{% static 'images/banners/banners.jpg' %}" class="img-fluid rounded">
 </div>
 
 </div> <!-- container //  -->
@@ -27,7 +27,7 @@
 </header><!-- sect-heading -->
 
 	<div class="row">
-		{% for product in products %}
+		{% for product in product_home %}
 			<div class="col-md-3">
 				<div class="card card-product-grid">
 					<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.image.url }}"> </a>

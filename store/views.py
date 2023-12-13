@@ -14,8 +14,9 @@ def home(request):
     View for the home page
     """
     products = Product.objects.all().filter(is_available=True)
+    product_home = products[:8]
     return render(request, 'store/home.html', {
-        'products': products
+        'product_home': product_home
     })
 
 def all_products(request, category_slug=None):
