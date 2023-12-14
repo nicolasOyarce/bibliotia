@@ -10,10 +10,7 @@
         <div class="col-md-12">
             <!-- col-lg-12 start here -->
             <div class="panel panel-default plain" id="dash_0">
-                <!-- Start .panel -- >
-                <div class="panel-body p30">
-                    <div class="row">
-                        <!-- Start .row -->
+
                         <div class="col-lg-6">
                             <!-- col-lg-6 start here -->
                             <div class="invoice-logo"><img src="{% static 'icons/bibliotia.png' %}" alt="Invoice logo" style="max-height: 40px;"></div>
@@ -23,7 +20,7 @@
                             <!-- col-lg-6 start here -->
                             <div class="invoice-from">
                                 <ul class="list-unstyled text-right">
-                                    <li><strong>Invoiced To</strong></li>
+                                    <li><strong>Facturado a</strong></li>
                                     <li>{{order.full_name}}</li>
                                     <li>{{order.full_address}}</li>
                                     <li>{{order.city}}, {{order.state}}</li>
@@ -58,7 +55,7 @@
                                         <tbody>
                                           {% for item in order_detail %}
                                             <tr>
-                                                <td>{{item.product.product_name}}
+                                                <td>{{item.product.title}}
                                                   <p class="text-muted small">
                                           					{% if item.variations.all %}
                                           						{% for i in item.variations.all %}

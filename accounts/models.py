@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class CustomAccountManager(BaseUserManager):
 
     def create_user(self, email, first_name, last_name, username, password=None):

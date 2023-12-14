@@ -71,13 +71,13 @@
                                           {% for item in ordered_products %}
                                             <tr>
                                                 <td>{{item.product.title}}
-                                                  <p class="text-muted small">
-                                          					{% if item.variations.all %}
-                                          						{% for i in item.variations.all %}
-                                          							{{ i.variation_category | capfirst }} : {{ i.variation_value | capfirst }} <br>
-                                          						{% endfor %}
-                                          					{% endif %}
-                                          				</p>
+                                                    <p class="text-muted small">
+                                                        {% if item.variations.all %}
+                                                            {% for i in item.variations.all %}
+                                                                {{ i.variation_category | capfirst }} : {{ i.variation_value | capfirst }} <br>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </p>
                                                 </td>
                                                 <td class="text-center">{{item.quantity}}</td>
                                                 <td class="text-center">${{ item.product_price|intcomma }}</td>

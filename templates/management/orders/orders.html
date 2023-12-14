@@ -198,7 +198,7 @@ $(document).ready(function(){
                     {% for order in orders %}
                         
                          <tr>
-                            <td>{{ order.order_number }}</td>
+                            <th scope="row"><a href="{% url 'accounts:order_detail' order.order_number %}">{{ order.order_number }}</a></th>
                             <td>{{ order.full_name }}</td>
                             <td>{{ order.email }}</td>
                             <td>{{ order.phone }}</td>

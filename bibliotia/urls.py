@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    # Admin honeypot
+    path('admin/', include('admin_honeypot.urls')),
     path('securelogin/', admin.site.urls),
     path('', include('store.urls', namespace='store')),
     path('accounts/', include('accounts.urls', namespace='accounts')),

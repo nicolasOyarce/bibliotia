@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from .models import Account, UserProfile
 
 
-
 class RegistrationForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={
