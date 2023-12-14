@@ -82,7 +82,7 @@
       <tr>
       	<td>
       		<figure class="itemside align-items-center"><a href=""></a>
-				    <div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm"></div>
+				    <div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm" style="height: 120px;"></div>
       			<figcaption class="info">
               <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.title }}</a>
               <p class="text-muted small">Autor: {{ cart_item.product.author }} <br> Editorial: {{ cart_item.product.editorial }}</p>
@@ -112,7 +112,7 @@
       </tbody>
       </table>
 
-      <button type="submit" name="submit" class="btn btn-primary btn-block">Pagar</button>
+      <button type="submit" name="submit" class="btn btn-primary btn-block" style="background-color: #0B5A74;color: #fff">Pagar</button>
 			<a href="" class="btn btn-light btn-block">Continuar comprando</a>
       </form>
 		</div> <!-- card-body.// -->

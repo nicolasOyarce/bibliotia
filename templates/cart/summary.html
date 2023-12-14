@@ -38,10 +38,10 @@
 	<tr>
 		<td>
 			<figure class="itemside align-items-center">
-				<div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm"></div>
+				<div class="aside" ><img src="{{ cart_item.product.image.url }}" class="img-sm" style="height: 105px;"></div>
 				<figcaption class="info">
 					<a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.title }}</a>
-					<p class="text-muted small">Autor: {{ cart_item.product.author }} <br> Editorial: {{ cart_item.product.editorial }}</p>
+					<p class="text-muted small">Autor: {{ cart_item.product.author }} <br> Editorial: {{ cart_item.product.editorial }} <br> Stock: {{ cart_item.product.stock }}</p>
 				</figcaption>
 			</figure>
 		</td>
@@ -102,7 +102,7 @@
 				<p class="text-center mb-3">
 					<img src="{% static './images/misc/payments.png' %}" height="26">
 				</p>
-				<a href="{% url 'cart:checkout' %}" class="btn btn-primary btn-block"> Ir a pagar </a>
+				<a href="{% url 'cart:checkout' %}" class="btn btn-primary btn-block" style="background-color: #0B5A74;color: #fff"> Ir a pagar </a>
 				<a href="{% url 'store:all_products' %}" class="btn btn-light btn-block">Continuar comprando</a>
 			</div> <!-- card-body.// -->
 			</div> <!-- card.// -->

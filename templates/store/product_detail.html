@@ -39,7 +39,7 @@
 						{% if in_cart %}
 							<a href="{% url 'cart:cart' %}" class="btn btn-success"> <span class="text">Producto agregado</span> <i class="fas fa-check"></i>  </a>
 						{% else %}
-							<button type="submit" class="btn  btn-primary"> <span class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>  </button>
+							<button type="submit" class="btn  btn-primary" style="background-color: #0B5A74;color: #fff"> <span class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>  </button>
 						{% endif %}	
 					{% endif %}
 				</article> <!-- product-info-aside .// -->
@@ -55,7 +55,7 @@
 <div class="container">
 
 <header class="section-heading">
-	<a href="{% url 'store:all_products' %}" class="btn btn-outline-primary float-right">Ver todo</a>
+	<a href="{% url 'store:all_products' %}" class="btn btn-outline-primary float-right" style="background-color: #0B5A74;color: #fff">Ver todo</a>
 	<h3 class="section-title">Productos Relacionados</h3>
 </header><!-- sect-heading -->
 
