@@ -154,3 +154,14 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bibliotia1@gmail.com'
 EMAIL_HOST_PASSWORD = 'fofc zqme vpjw tgbj'
 EMAIL_USE_TLS = True
+
+# S3 Configuration
+AWS_ACCESS_KEY_ID = 'AKIARL23M7EQWA34MZ5T'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bucketbibliotia'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
