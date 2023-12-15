@@ -44,7 +44,11 @@ class RegistrationForm(forms.ModelForm):
         try:
             password_validation.validate_password(password, self.instance)
         except ValidationError as e:
-            self.add_error('password', e)
+            for error in e:
+                if error.code == 'too_common':
+                    self.add_error('password', 'La contraseña es muy común')
+                elif error.code == 'too_short':
+                    self.add_error('password', 'La contraseña es demasiado corta. Debe contener al menos 8 caracteres')
 
         return cleaned_data
     
