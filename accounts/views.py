@@ -16,7 +16,6 @@ from orders.models import Order, OrderProduct
 from .forms import RegistrationForm, UserForm, UserProfileForm
 from .models import Account, UserProfile
 
-
 def register(request):
     """
     View for the register page
