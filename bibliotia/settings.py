@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
-from decouple import config
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -21,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-z)fk=va9*wv6k883z%e7@9(=vkdv-hop^-*=k0#q151_pt1l^$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = ['34.239.115.180', 'localhost', '127.0.0.1', 'bibliotia.online', 'www.bibliotia.online']
 
@@ -87,12 +86,12 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWD'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', cast=int),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'databasebibliotia',
+        'USER': 'admintia',
+        'PASSWORD': 'admintia',
+        'HOST': 'databasebibliotia.cj7bfyyqmycu.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -150,27 +149,27 @@ MESSAGE_TAGS = {
 }
 
 # SMTP Configuration
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') 
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bibliotia1@gmail.com'
+EMAIL_HOST_PASSWORD = 'fofc zqme vpjw tgbj'
+EMAIL_USE_TLS = True
 
 # S3 Configuration
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('S3_BUCKET_NAME')
-AWS_S3_SIGNATURE_NAME = config('AWS_S3_SIGNATURE_NAME')
-AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
-AWS_S3_FILE_OVERWRITE = config('AWS_S3_FILE_OVERWRITE', cast=bool)
-AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL')
-AWS_S3_VERITY = config('AWS_S3_VERITY', cast=bool)
-DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
+AWS_ACCESS_KEY_ID = 'AKIARL23M7EQWA34MZ5T'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bucketbibliotia'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Configuración CSRF
-CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
-CSRF_COOKIE_HTTPONLY = config('CSRF_COOKIE_HTTPONLY', cast=bool)
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True 
 
 # Orígenes permitidos para CSRF
 CSRF_TRUSTED_ORIGINS = [
