@@ -215,6 +215,9 @@ def my_orders(request):
 
 @login_required
 def edit_profile(request):
+    """
+    View for the edit profile page
+    """
     userprofile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -236,6 +239,9 @@ def edit_profile(request):
 
 @login_required
 def change_password(request):
+    """
+    View for the change password page
+    """
     if request.method == 'POST':
         current_password = request.POST['current_password']
         new_password = request.POST['new_password']
@@ -262,6 +268,9 @@ def change_password(request):
 
 @login_required
 def order_detail(request, order_id):
+    """
+    View for the order detail page
+    """
     order_detail = OrderProduct.objects.filter(order__order_number=order_id)
     order = Order.objects.get(order_number=order_id)
     subtotal = 0

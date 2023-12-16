@@ -25,9 +25,15 @@ class Product(models.Model):
         ordering = ('title', )
 
     def get_url(self):
+        """
+        This method will return the url of the product
+        """
         return reverse('store:product_detail', args=[self.slug])
     
     def save(self, *args, **kwargs):
+        """
+        This method will save the product
+        """
         if not self.slug:
             self.slug = slugify(self.title)
         super(Product, self).save(*args, **kwargs)
@@ -37,6 +43,9 @@ class Product(models.Model):
     
 class VariationManager(models.Manager):
     def stock(self):
+        """
+        This method will return the stock of the product
+        """
         return super(VariationManager, self).filter(variation_category='stock', is_active=True)
 
 variation_category_choice = (

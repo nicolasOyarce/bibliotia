@@ -13,9 +13,15 @@ class Category(models.Model):
         ordering = ('category_name', ) 
     
     def get_url(self):
+        """
+        This method will return the url of the category
+        """
         return reverse('store:products_by_category', args=[self.slug])
     
     def save(self, *args, **kwargs):
+        """
+        This method will save the category name as a slug
+        """
         if not self.slug:
             self.slug = slugify(self.category_name)
         super(Category, self).save(*args, **kwargs)

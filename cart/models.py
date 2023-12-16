@@ -28,6 +28,9 @@ class CartItem(models.Model):
         verbose_name_plural = 'cart items'
         
     def sub_total(self):
+        """
+        This method will return the total price of the product
+        """
         return self.product.price * self.quantity
     
     def __str__(self):

@@ -3,6 +3,9 @@ from .views import _cart_id
 
 
 def counter(request):
+    """
+    A context processor to return the total number of items in the user's cart
+    """
     cart_count = 0
     if 'admin' in request.path:
         return {}

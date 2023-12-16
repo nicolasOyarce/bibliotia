@@ -47,6 +47,9 @@ def product_add(request):
 
 @login_required
 def product_edit(request, id):
+    """
+    View for edit product
+    """
     product = Product.objects.get(id=id)
     
     if request.method == 'POST':
@@ -65,6 +68,9 @@ def product_edit(request, id):
 
 @login_required
 def product_delete(request, id):
+    """
+    View for delete product
+    """
     product = Product.objects.get(id=id)
     product.delete()
     return redirect('management:management_products') 
@@ -72,6 +78,9 @@ def product_delete(request, id):
 # Orders
 @login_required
 def management_order(request):
+    """
+    View for management order
+    """
     orders = Order.objects.all()
     return render(request, 'management/orders/orders.html', {
         'orders': orders,
@@ -96,10 +105,6 @@ def user_delete(request, id):
     user = get_object_or_404(Account, id=id) 
     user.delete()
     return HttpResponseRedirect(reverse('management:management_users')) 
-
-
-
-
 
 # Categories
 @login_required
@@ -133,6 +138,9 @@ def category_add(request):
     
 @login_required
 def category_edit(request, id):
+    """
+    View for edit category
+    """
     category = Category.objects.get(id=id)
     
     if request.method == 'POST':
@@ -151,6 +159,9 @@ def category_edit(request, id):
     
 @login_required
 def category_delete(request, id):
+    """
+    View for delete category
+    """
     category = Category.objects.get(id=id)
     category.delete()
     return redirect('management:management_categories')

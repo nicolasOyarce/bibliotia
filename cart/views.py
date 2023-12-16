@@ -18,6 +18,9 @@ def _cart_id(request):
     return cart
 
 def cart_add(request, product_id):
+    """
+    This view function will add the product to the cart
+    """
     current_user = request.user
     product = Product.objects.get(id=product_id) #get the product
     # If the user is authenticated
@@ -183,7 +186,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.product.price * cart_item.quantity)
             quantity += cart_item.quantity
-        send = 3000
+        send = 4500
         grand_total = total + send
     except ObjectDoesNotExist:
         pass #just ignore
@@ -212,7 +215,7 @@ def checkout(request, total=0, quantity=0, cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.product.price * cart_item.quantity)
             quantity += cart_item.quantity
-        send = 3000
+        send = 4500
         grand_total = total + send
     except ObjectDoesNotExist:
         pass #just ignore

@@ -53,6 +53,9 @@ class RegistrationForm(forms.ModelForm):
         return cleaned_data
     
     def clean_email(self):
+        """ 
+        Verify that the email is not already registered
+        """
         email = self.cleaned_data.get('email')
         if Account.objects.filter(email=email).exists():
             raise forms.ValidationError("El correo ingresado ya esta en uso")

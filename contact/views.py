@@ -6,6 +6,9 @@ from django.urls import reverse
 
 
 def contact(request):
+    """
+    This view function will send an email to the admin
+    """
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -33,4 +36,7 @@ def contact(request):
     return render(request, 'contact/contact.html')
 
 def phone(request):
+    """
+    This view function will display the phone number
+    """
     return render(request, 'contact/phone.html')

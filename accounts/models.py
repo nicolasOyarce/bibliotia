@@ -8,6 +8,9 @@ from django.dispatch import receiver
 class CustomAccountManager(BaseUserManager):
 
     def create_user(self, email, first_name, last_name, username, password=None):
+        """
+        Create and return a `User` with an email, username and password.
+        """
 
         if not email:
             raise ValueError("Direccion de correo electronico obligatoria")
@@ -26,6 +29,9 @@ class CustomAccountManager(BaseUserManager):
         return user
     
     def create_superuser(self, email, first_name, last_name, username, password):
+        """ 
+        Create and return a `User` with superuser (admin) permissions.
+        """
         user = self.create_user(
             email = self.normalize_email(email), 
             first_name = first_name,
@@ -70,6 +76,9 @@ class Account(AbstractBaseUser, PermissionsMixin):
         return self.email
     
     def has_perm(self, perm, obj=None):
+        """
+        Does the user have a specific permission?
+        """
         return self.is_admin
 
     
@@ -104,5 +113,8 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=Account)
 def create_user_profile(sender, instance, created, **kwargs):
+    """
+    Create a user profile when a new user is created
+    """
     if created:
         UserProfile.objects.create(user=instance)
