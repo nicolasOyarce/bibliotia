@@ -15,6 +15,9 @@ urlpatterns = [
     path('contact/', include('contact.urls', namespace='contact')),
 ]
 
+HANDLER_404 = "errors.views.error_404"
+HANDLER_500 = "errors.views.error_500"
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_URL)
