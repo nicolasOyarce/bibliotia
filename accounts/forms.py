@@ -31,26 +31,23 @@ class RegistrationForm(forms.ModelForm):
     def clean(self):
         """
         Verify that the two password entries match
+        and the password is at least 8 chars long
         """
-        cleaned_data = super(RegistrationForm, self).clean()
+        cleaned_data = super(RegistrationForm, self).clean()  
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
+
+        if len(password) < 8:
+            raise forms.ValidationError(
+                "La contraseña debe tener al menos 8 caracteres"
+            )
 
         if password != confirm_password:
             raise forms.ValidationError(
                 "Las contraseñas no coinciden"
             )
         
-        try:
-            password_validation.validate_password(password, self.instance)
-        except ValidationError as e:
-            for error in e:
-                if error.code == 'too_common':
-                    self.add_error('password', 'La contraseña es muy común')
-                elif error.code == 'too_short':
-                    self.add_error('password', 'La contraseña es demasiado corta. Debe contener al menos 8 caracteres')
-
-        return cleaned_data
+        return cleaned_data 
     
     def clean_email(self):
         """ 
