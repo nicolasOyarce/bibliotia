@@ -1,0 +1,108 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<style>
+    body{
+        background-color: rgb(213, 213, 213);
+    }
+    footer{
+        background-color: #797979;
+    }
+</style>
+
+<!-- MAIN PRODUCT -->
+<section class="py-5" >
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6">
+            <img src="/static/img/Portada Inglés 1.jpg" class="img-fluid" alt="Product Image"/>
+            </div>
+        <div class="col-lg-6">
+            <h2 class="fw-bold" style="font-size: 20px; color: #003540;">Libro de octavo basico</h2>
+            <p class="text-muted" style="font-size: 20px; color: #006A80;">Autor: Marcela Gozo</p>
+            <h3 class="my-4" style="font-size: 50px; color: #0d6efd;">$99.99</h3>
+            <p class="mb-4" style="font-size: 20px; margin-left: 10px; color: #003540;" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis repellat deserunt nulla sequi labore? Sint recusandae adipisci repudiandae cupiditate magni voluptates! Exercitationem officia rerum repellat vitae nesciunt dolore dignissimos aspernatur molestiae quae saepe quo magnam libero aliquid similique unde reiciendis maxime atque ducimus quia, nisi eius temporibus. Consequuntur sint doloribus ad nesciunt quisquam eligendi deleniti, modi labore quia. Culpa, impedit!</p>
+            <div class="d-flex gap-3 mb-4">
+            <input
+                type="number"
+                class="form-control"
+                value="1"
+                style="max-width: 80px; margin-left: 10px"/>
+            </div>
+            <div>
+                <a href="{% url 'checkout' %}"><button type="button" class="btn btn-primary" style="font-size: 30px; margin-left: 10rem; background-color: #006A80;">Agregar Carrito</button></a>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SECONDARY PRODUCT -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4" style=" text-align: center; margin-bottom: 1000px; color: #003540 ">Productos Relacionados</h2>
+        <div class="row gx-6 gx-lg-6 row-cols-1 row-cols-md-1 row-cols-xl-4 justify-content-center" style="margin-top: 60px;">
+            <div class="col">
+                <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                    <a href="{% url 'item' %}"><img src="/static/img/Matematica 7 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                        <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col">
+                <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                    <a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                        </div>
+                    </div>  
+                </div>
+            </div> <!-- col.// -->
+            <div class="col">
+                <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                    <a href="{% url 'item' %}"><img src="/static/img/Lenguaje 8 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title pt-2 text-center " style="color: #003540;">Libro de ingles</h5>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col">
+                <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                    <a href="{% url 'item' %}"><img src="/static/img/Ingles 3 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+    </div>
+</section>
+
+<script
+src="https://code.jquery.com/jquery-3.5.1.js"
+integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+crossorigin="anonymous"
+></script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+crossorigin="anonymous"
+></script>
+
+
+
+{% endblock content %}

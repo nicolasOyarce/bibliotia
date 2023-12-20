@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<style>
+    .custom-navbar {
+        background-color: #003540;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 300px){
+        .custom-navbar{
+            flex-direction: flex;
+            height: 120px;
+            justify-content: space-evenly;
+            font-size: 12px;
+        }
+    }
+
+    nav {
+    display: flex;
+    align-items: center; 
+    height: 60px;
+    padding: 0 1rem;
+    }
+
+
+
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background: #fff; 
+        padding: 20px;
+    }
+    
+    .nav-links.show-menu { 
+        display: flex;
+    }
+    
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#bla" />
+    <title>{% block title %}Bibliotia{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'js/scripts.js' %}" />
+    
+</head>
+
+
+
+
+<header class="container-fluid custom-navbar position-sticky top-0">
+    <nav class="navbar navbar-expand-lg navbar-light container" style="height: 100px">
+        <div class="container-fluid">
+            <div class="col-md-2 col-6">
+                <a href="{% url 'inicio' %}">
+                    <img src="{% static 'img/bibliotíaiono.jpg' %}" alt="Logo" class="img-fluid" style="width: 85px; height: 85px;">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'inicio' %}" style="color: #0F9FAA; font-size: 25px; margin-left: 15px;">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'catalogo' %}" style="color: #0F9FAA; font-size: 25px; margin-left: 15px;">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #0F9FAA; font-size: 25px; margin-left: 15px;">Envíos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #0F9FAA; font-size: 25px; margin-left: 15px;">Promociones</a>
+                        </li>
+                    </ul>
+                </ul>
+                <form class="d-flex col-md-6 col-12 mt-3 mt-md-0">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" style="background: #B6D5D8; max-height: 40px; max-width: 250px; margin-left: 90px;">
+                </form>
+            </div>
+
+            <div class="col-md-2 col d-flex  mt-0 mt-md-0">
+                <a data-bs-toggle="modal" data-bs-target="#modalIniciarSesion" role="button" class="logo">
+                    <img src="{% static 'img/iniciar.jpg' %}" alt="Logo" class="img-fluid" style="width: 50px; height: 50px;">
+                </a>
+                <a href="{% url 'checkout' %}">
+                    <img src="{% static 'img/carrito.jpg' %}" alt="Logo" class="img-fluid" style="margin-left: 1rem; width: 50px; height: 50px;">
+                </a>
+            </div>
+            <button  style="margin-left: 20px;" class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="p-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-6 ml-auto">
+                    <img src="{% static 'img/bibliotíaiono.jpg' %}" alt="Logo" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <h5 class="text-white">Product</h5>
+                    <ul>
+                        <li class="text-white">Features</li>
+                        <li class="text-white">Shipping</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <h5 class="text-white">Resource</h5>
+                    <ul>
+                        <li class="text-white">Blog</li>
+                        <li class="text-white">User Guides</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <h5 class="text-white">Company</h5>
+                    <ul>
+                        <li class="text-white">About</li>
+                        <li class="text-white">Join Us</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <h5 class="text-white">No encuentras el libro que buscas?</h5>
+                    <a class="btn btn-primary" href="#">Sugerir un libro</a>
+                </div>
+            </div>
+            <p class="text-center m-0 text-muted text-white">© 2023 Nombre del producto - <a href="#" class="text-white">Privacidad</a> - <a href="#" class="text-white">Términos</a> - <a href="#" class="text-white">Mapa del sitio</a></p>
+        </div>
+    </footer>
+    
+    
+<!-- Modal Iniciar Sesión -->
+<div class="modal fade" id="modalIniciarSesion" tabindex="-1" aria-labelledby="modalIniciarSesionLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Pills content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                    <form>
+                        <div class="text-center mb-3">
+                            <h6 class="mb-3 form__label mb-0 fw-bold h4" style="color:black; font-size: 24px; margin-top: 2rem">Inicio de Sesion</h6>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginName">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" class="form-control"/>
+                        </div>
+
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-4">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Simple link -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-dark  mx-auto" style="width: 80%;"> Sign in</button>
+                        </div>
+
+
+                        <!-- Register buttons -->
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="#" data-bs-target="#modalCrearCuenta" data-bs-toggle="modal" data-bs-dismiss="modal">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+            <footer class="bg-body-tertiary text-center bg-light">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <!-- Google -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-google"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <!-- Linkedin -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <!-- Github -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </section>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Crear Cuenta -->
+<div class="modal fade" id="modalCrearCuenta" tabindex="-1" aria-labelledby="modalCrearCuentaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Pills content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                    <form>
+                        <div class="text-center mb-3">
+                            <h6 class="mb-3 form__label mb-0 fw-bold h4" style="color:black; font-size: 24px; margin-top: 2rem">Crear Cuenta</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form__label " style="width: 100%;">First name</label>
+                                <div class="form-outline">
+                                    <input type="password" id="loginPassword" placeholder="Enter your password" class="form-control" style="width: 100%; margin-top: 2px;"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12 mb-3">
+                                <label class="form__label " style="width: 100%;">Last name</label>
+                                <div class="form-outline">
+                                    <input type="password" id="loginPassword" placeholder="Enter your password" class="form-control" style="width: 100%; margin-top: 2px;"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginName" style="width: 100%;">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" style="width: 100%; margin-top: 2px;">
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginPassword" style="width: 100%;">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" class="form-control" style="width: 100%; margin-top: 2px;"/>
+                        </div>
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-4">
+                            <div class="col-md-6 col-12 d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                    <label class="form-check-label" for="loginCheck"> By signip up, i agree with </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Submit button -->
+                        <button type="button" class="btn btn-dark" style="width: 80%; margin-left: 10%;"> Sign up</button>
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal1">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <footer class="bg-body-tertiary text-center bg-light">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <!-- Google -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- Linkedin -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- Github -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333; font-size: 24px;" href="#!" role="button">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </section>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+header, .alert {
+  z-index: 100;
+}
+
+.description {
+  height: 25px;
+  overflow: hidden;
+  transition: height .3s ease-in .3s;
+}
+
+.description:hover {
+  height: 80px;
+}
+
+.carrito {
+  min-height: 80vh;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.table__productos {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas más pequeñas */
+}
+
+.table__productos > img {
+  width: 100%; /* Ocupar el 100% del ancho del contenedor */
+  max-width: 9rem; /* Ancho máximo de la imagen */
+  object-fit: contain;
+  border-radius: 6px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.table__cantidad > input {
+  width: 100%; /* Ocupar el 100% del ancho del contenedor */
+  border: none;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 0; /* Eliminar el margen derecho */
+  margin-bottom: 20px;
+}
+
+.hide, .remove {
+  display: none;
+}
+
+.card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+}
+
+.img-wrapper {
+  width: 1px;
+  height: 1px;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto; /* Evitar que las imágenes se estiren */
+}
+
+.custom-card {
+  width: 100%; /* Ocupar el 100% del ancho del contenedor */
+  max-width: 45rem; /* Ancho máximo de la tarjeta */
+  height: auto; /* Hacer que la altura sea dinámica */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 2rem; /* Tamaño del título del libro en unidades rem */
+}
+
+.card-text {
+  font-size: 1.5rem; /* Tamaño del texto de descripción del libro en unidades rem */
+}
+
+.button {
+  margin-top: 2rem; /* Espacio entre el texto y el botón en unidades rem */
+}
+
+.imagen-derecha {
+  margin-left: 2rem; /* Añade un margen a la izquierda de la imagen en unidades rem */
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas más pequeñas */
+}
+
+.imagen {
+  width: 100%; /* Ocupar el 100% del ancho del contenedor */
+  max-width: 200px; /* Ancho máximo de la imagen */
+  height: auto; /* Hacer que la altura sea dinámica */
+}
