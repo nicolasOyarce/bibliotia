@@ -5,6 +5,7 @@ Joint project of an ecommers website for the sale of books.
   - Python
   - Git
   - Visual Studio Code
+  - AWS
 
 
 <!--## PostgreSQL Installation
