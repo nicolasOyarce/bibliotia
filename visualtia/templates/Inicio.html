@@ -1,0 +1,177 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Bibliotia - Inicio{% endblock %}
+
+{% block content %}
+
+<style>
+  body{
+      background-color: rgb(213, 213, 213);
+  }
+  footer{
+    background-color: #797979;
+  }
+</style>
+
+<body>
+    <div class="banner" style="position: relative; width: 100%; height: 550px; background-image: url(../static/img/banners.jpg); background-position: center; background-size: cover; background-repeat: no-repeat; margin-top: 40px; margin-bottom: 40px;">
+      <div class="capa position-absolute top-0 start-0 w-100 h-100">
+          <div class="contenido text-white text-center d-flex flex-column justify-content-center align-items-center h-100">
+        </div>
+      </div>
+    </div>
+    <h1 style="text-align: center; margin-bottom: 40px; color: #003540 ">Libros Recomendados</h1>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active container" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Portada Inglés 1.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Ingles 3 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div>
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>  
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Matematica 7 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Lenguaje 8 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center " style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Ingles 3 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Portada Inglés 1.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center " style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Matematica 7 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Portada Inglés 1.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center " style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center" style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+            <div >
+              <div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 30px;">
+                  <a href="{% url 'item' %}"><img src="/static/img/Lenguaje 8 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+                  <div class="card-body">
+                      <h5 class="card-title pt-2 text-center " style="color: #003540;">Libro de ingles</h5>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+                      </div>
+                  </div>
+              </div>
+            </div> <!-- col.// -->
+          </div>
+        </div>
+      </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
+  
+  {% endblock %}
