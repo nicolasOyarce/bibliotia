@@ -1,10 +1,22 @@
 # Bibliotia
-Joint project of an ecommers website for the sale of books. 
+Este proyecto consiste en una plataforma web para la venta de libros de comprensión lectora y fue desarrollado como trabajo final para la universidad.
 
-## Prerequisites
+El frontend y backend fueron creados con Django, la base de datos en Postgres y el deploy en AWS. El diseño de la interfaz web fue tomado de plantillas gratuitas disponibles en internet.
+
+La plataforma está enfocada en padres de familia con hijos en edad escolar. Cuenta con un catálogo de libros por niveles académicos, carrito de compras, sistema de pago, control de inventario y registro de usuarios con confirmación por email.
+
+El proyecto busca facilitar la adquisición de material educativo de lectura para que los padres puedan apoyar el aprendizaje de sus hijos.
+
+A nivel técnico utiliza Django, Postgres, AWS, con documentación del código y buenas prácticas de programación. Si bien el diseño no es original porque fue tomado de plantillas web gratuitas, el objetivo era poner en práctica los conocimientos de desarrollo web adquiridos durante la carrera.
+
+## Tecnologias principales
   - Python
+  - Django
+  - CSS
+  - HTML
   - Git
   - Visual Studio Code
+  - PostgreSQL
   - AWS
 
 
