@@ -1,15 +1,17 @@
 # Bibliotia
-Este proyecto consiste en una plataforma web para la venta de libros de comprensión lectora y fue desarrollado como trabajo final para la universidad.
+This project consists of a web platform for the sale of reading comprehension books and was developed as a work for the university.
 
-El frontend y backend fueron creados con Django, la base de datos en Postgres y el deploy en AWS. El diseño de la interfaz web fue tomado de plantillas gratuitas disponibles en internet.
+The frontend and backend were created with Django, the database in Postgres and the deploy in AWS. The web interface design was taken from free templates available on the internet.
 
-La plataforma está enfocada en padres de familia con hijos en edad escolar. Cuenta con un catálogo de libros por niveles académicos, carrito de compras, sistema de pago, control de inventario y registro de usuarios con confirmación por email.
+The platform is focused on parents with school-age children. It has a catalog of books by academic levels, shopping cart, payment system, inventory control and user registration with email confirmation.
 
-El proyecto busca facilitar la adquisición de material educativo de lectura para que los padres puedan apoyar el aprendizaje de sus hijos.
+The project seeks to facilitate the acquisition of educational reading material so that parents can support their children's learning.
 
-A nivel técnico utiliza Django, Postgres, AWS, con documentación del código y buenas prácticas de programación. Si bien el diseño no es original porque fue tomado de plantillas web gratuitas, el objetivo era poner en práctica los conocimientos de desarrollo web adquiridos durante la carrera.
+At the technical level it uses Django, Postgres, AWS, with code documentation and good programming practices. Although the design is not original because it was taken from free web templates, the goal was to put into practice the knowledge of web development acquired during the course.
 
-## Tecnologias principales
+Translated with DeepL.com (free version)
+
+## Main Technologies
   - Python
   - Django
   - CSS
@@ -18,24 +20,6 @@ A nivel técnico utiliza Django, Postgres, AWS, con documentación del código y
   - Visual Studio Code
   - PostgreSQL
   - AWS
-
-
-<!--## PostgreSQL Installation
-  - Linux: 
-    - Update the package index
-      ```bash
-      sudo apt update
-      ```
-    
-    - Install PostgreSQL
-      ```bash
-      sudo apt install postgresql postgresql-contrib
-      ```
-      
-  - Windows:
-    
-    - Download and install PostgreSQL from https://www.postgresql.org/download/windows/-->
-      
 
 ## Basic Installation
 
