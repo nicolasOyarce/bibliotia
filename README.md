@@ -10,6 +10,9 @@ The project seeks to facilitate the acquisition of educational reading material 
 
 At the technical level it uses Django, Postgres, AWS, with code documentation and good programming practices. Although the design is not original because it was taken from free web templates, the goal was to put into practice the knowledge of web development acquired during the course.
 
+> [!NOTE]  
+> It is worth mentioning that the project is not currently uploaded to AWS, but at the time it was presented and evaluated, it was running and operating on AWS..
+
 ## Table of Contents
 
   - [Installation](#installation)
@@ -18,14 +21,9 @@ At the technical level it uses Django, Postgres, AWS, with code documentation an
   - [Contact](#contact)
 
 ## Main Technologies
-  - Python
-  - Django
-  - CSS
-  - HTML
-  - Git
-  - Visual Studio Code
-  - PostgreSQL
-  - AWS
+  <a href="https://skillicons.dev" align="center">
+    <img src="https://skillicons.dev/icons?i=django,git,aws,bootstrap,css,cloudflare,github,html,js,md,postgresql,py,vscode&perline=14" />
+  </a>
 
 ## Installation
 
