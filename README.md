@@ -1,4 +1,4 @@
-[![freeCodeCamp Social Banner](https://cdn.freecodecamp.org/platform/universal/fcc_banner_new.png)](https://www.freecodecamp.org/)
+![Bibliotia Banner](/bibliotia/static/icons/bibliotia.png)
 # Bibliotia
 This project consists of a web platform for the sale of reading comprehension books and was developed as a work for the university.
 
@@ -11,7 +11,7 @@ The project seeks to facilitate the acquisition of educational reading material 
 At the technical level it uses Django, Postgres, AWS, with code documentation and good programming practices. Although the design is not original because it was taken from free web templates, the goal was to put into practice the knowledge of web development acquired during the course.
 
 > [!NOTE]  
-> It is worth mentioning that the project is not currently uploaded to AWS, but at the time it was presented and evaluated, it was running and operating on AWS..
+> It is worth mentioning that the project is not currently uploaded to AWS, but at the time it was presented and evaluated, it was running and operating on AWS.
 
 ## Table of Contents
 
