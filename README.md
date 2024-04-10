@@ -15,9 +15,9 @@ At the technical level it uses Django, Postgres, AWS, with code documentation an
 
 ## Table of Contents
 
+  - [Main Technologies](#main-technologies)
   - [Installation](#installation)
   - [Use](#use)
-  - [License](#license)
   - [Contact](#contact)
 
 ## Main Technologies
@@ -88,5 +88,21 @@ At the technical level it uses Django, Postgres, AWS, with code documentation an
       
 
 ## Use
-## License
+#### User Roles
+- Account Creation: Registration process, verification and account activation.
+- User Profile: Access to orders placed, edit personal data and change password.
+- Book Search and Purchase: Catalog browsing, filtering by school, adding to cart and payment process.
+- Contact and Messaging: Contact form and telephone contact option.
+- Forgot Password: Password recovery via e-mail.
+
+#### Admin Roles
+- Login: Administrator access credentials (email and password).
+- Administrative Sections:
+  - Users: View, delete registered users.
+  - Books: Manage (add, edit, delete) the book catalog.
+  - Categories: Manage (modify, add, delete) categories (schools).
+  - Orders: Access to the details of the transactions made.
+
 ## Contact
+<a href="https://www.linkedin.com/in/nicolas-oyarce/">Linkedin<a>
+<a href="#">...<a>
