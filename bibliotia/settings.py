@@ -1,14 +1,12 @@
 import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
+import dj_database_url
 
-# Quick-start development settings - unsuitable for production
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-z)fk=va9*wv6k883z%e7@9(=vkdv-hop^-*=k0#q151_pt1l^$'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['34.239.115.180', 'localhost', '127.0.0.1', 'bibliotia.online', 'www.bibliotia.online']
@@ -67,16 +65,21 @@ WSGI_APPLICATION = 'bibliotia.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
 
 # Database
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'databasebibliotia',
+        #'USER': 'admintia',
+        #'PASSWORD': 'admintia',
+        #'HOST': 'databasebibliotia.cj7bfyyqmycu.us-east-1.rds.amazonaws.com',
+        #'PORT': '5432',
+    #}
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'databasebibliotia',
-        'USER': 'admintia',
-        'PASSWORD': 'admintia',
-        'HOST': 'databasebibliotia.cj7bfyyqmycu.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
+    "default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -134,15 +137,15 @@ EMAIL_HOST_PASSWORD = 'fofc zqme vpjw tgbj'
 EMAIL_USE_TLS = True
 
 # S3 Configuration
-AWS_ACCESS_KEY_ID = 'AKIARL23M7EQWA34MZ5T'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bucketbibliotia'
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = 'us-east-1'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERITY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#AWS_ACCESS_KEY_ID = 'AKIARL23M7EQWA34MZ5T'
+#AWS_SECRET_ACCESS_KEY = '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'
+#AWS_STORAGE_BUCKET_NAME = 'bucketbibliotia'
+#AWS_S3_SIGNATURE_NAME = 's3v4',
+#AWS_S3_REGION_NAME = 'us-east-1'
+#AWS_S3_FILE_OVERWRITE = False
+#AWS_DEFAULT_ACL =  None
+#AWS_S3_VERITY = True
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Configuración CSRF
 CSRF_COOKIE_SECURE = True
