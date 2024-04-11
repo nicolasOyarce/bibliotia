@@ -105,4 +105,3 @@ At the technical level it uses Django, Postgres, AWS, with code documentation an
 
 ## Contact
 <a href="https://www.linkedin.com/in/nicolas-oyarce/">Linkedin<a>
-<a href="#">...<a>
