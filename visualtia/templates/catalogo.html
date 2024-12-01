@@ -1,0 +1,329 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Bibliotia - Inicio{% endblock %}
+
+{% block content %}
+
+
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+
+<div class="container py-5" style="margin-top: 3rem;" >
+	<div class="row">
+		<aside class="col-md-3 ">
+			<h5 class="mb-3 form__label mb-0 fw-bold h4" style="margin-left: 1rem; color: #003540;">Filtros</h5>
+			<div class="card " style="background-color: #001C26;">
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="" style="text-decoration: none;">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title fw-bold " style="color: white; font-size: 20px;">Rango de Precio </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_3" >
+						<div class="card-body">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label class=" fw-bold " style="color: white; font-size: 20px;">Min</label>
+									<input class="form-control"  style="margin-top: 10px; margin-bottom: 10px;" placeholder="$0" type="number">
+								</div>
+								<div class="form-group text-right col-md-6">
+									<label class=" fw-bold " style="color: white; font-size: 20px;">Max</label>
+									<input class="form-control" style="margin-top: 10px; margin-bottom: 10px;" placeholder="$1,0000" type="number">
+								</div>
+							</div> <!-- form-row.// -->
+							<input type="range" class="custom-range" min="0" max="100" name="" >
+						</div><!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="" style="text-decoration: none;">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title fw-bold " style="color: white; font-size: 20px;">Tipos de Producto</h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_1" >
+						<div class="card-body">
+							<form class="pb-3">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Buscar">
+									<div class="input-group-append">
+										<button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</form>
+							
+							<ul class="list-menu">
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+								<li><a href="#" class="fw-bold" style="color: white; font-size: 18px; text-decoration: none;">Book</a></li>
+							</ul>
+							
+
+						</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group  .// -->
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="" style="text-decoration: none;">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title fw-bold " style="color: white; font-size: 20px;">Brands </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_2" >
+						<div class="card-body">
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" checked="" class="custom-control-input">
+								<div class="custom-control-label  fw-bold " style="color: white; font-size: 20px;">Libro  
+									<b class="badge badge-pill badge-light float-right fw-bold" style="color: white; font-size: 20px;">120</b>  
+								</div>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" checked="" class="custom-control-input">
+								<div class="custom-control-label fw-bold" style="color: white; font-size: 20px;">Libro
+									<b class="badge badge-pill badge-light float-right fw-bold font-size: 20px;">15</b>  
+								</div>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" checked="" class="custom-control-input">
+								<div class="custom-control-label fw-bold" style="color: white; font-size: 20px;">Libro 
+									<b class="badge badge-pill badge-light float-right fw-bold font-size: 20px;">35</b> 
+								</div>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" checked="" class="custom-control-input">
+								<div class="custom-control-label fw-bold" style="color: white; font-size: 20px;">Libro
+									<b class="badge badge-pill badge-light float-right fw-bold font-size: 20px;">89</b>
+								</div>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input">
+								<div class="custom-control-label fw-bold" style="color: white; font-size: 20px;">Libro
+									<b class="badge badge-pill badge-light float-right fw-bold font-size: 20px;">30</b>  
+								</div>
+							</label>
+				</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+			</div> 
+		</aside>
+		<main class="col-md-9">
+			<div class="row">
+				<div class="col-sm-6 mb-3">
+					<div class="form-outline">
+						<input type="password" id="loginPassword" placeholder="Buscar" class="form-control" style="font-size: 18px; margin-top: 20px;"  />
+					</div>
+				</div>
+			
+				<div class="col-sm-6 mb-3" style="display: flex; align-items: flex-end;">
+					<div class="form-outline">
+						<select class="mr-2 form-control" style="font-size: 18px; background-color: #006A80; color: white">
+							<option>Ultimos Productos</option>
+							<option>Mas Populares</option>
+							<option>Mas Barato</option>
+						</select>
+					</div>
+					<a>
+						<button type="button" class="btn btn-primary" style="font-size: 15px; margin-left: 30px; font-size: 18px; background-color: #006A80; ">Buscar</button>
+					</a>
+				</div>
+			</div>
+			
+			
+			<header class="border-bottom mb-4 pb-3">
+					<div class="form-inline">
+						<span class="mr-md-auto fw-bold" style="color: #003540; font-size: 20px;">Productos Recomendados</span>
+					</div>
+			</header><!-- sect-heading -->
+
+			<div class="row" style="margin-right: 0px;">
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4"> 
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+
+				<div class="col-md-4">
+					<div class="card shadow mb-1 rounded" style="width: 18rem; background-color: #E1E3E3; margin-top: 20px;">
+						<a href="{% url 'item' %}"><img src="/static/img//Lenguaje 4 basico.jpg" class="card-img-top" alt="..." style="width: 250px; height: 320px; margin-left: 18px; margin-top: 20px;"></a>
+						<div class="card-body">
+							<h5 class="card-title pt-2  text-center" style="color: #003540;">Libro de ingles</h5>
+							<div class="d-grid gap-2">
+								<button class="btn btn-primary button" style="background-color: #006A80; max-width: 100px; margin-left: 75px;">Ver Libro</button>
+							</div>
+						</div>  
+					</div>
+				</div> <!-- col.// -->
+			</div> <!-- row end.// -->
+
+
+			<nav class="mt-4" aria-label="Page navigation sample" style="margin-left: 500px;">
+				<ul class="pagination">
+					<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+		</main>
+	</div>
+</div>
+
+<style>
+    .icon-control {
+    margin-top: 5px;
+    float: right;
+    font-size: 80%;
+}
+
+body{
+    background-color: rgb(213, 213, 213);
+}
+footer{
+    background-color: #797979;
+}
+
+
+.list-menu {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+.list-menu a {
+    color: #343a40;
+}
+
+.card-product-grid .info-wrap {
+    overflow: hidden;
+    padding: 18px 20px;
+}
+
+[class*='card-product'] a.title {
+    color: #212529;
+    display: block;
+}
+
+.card-product-grid:hover .btn-overlay {
+    opacity: 1;
+}
+.card-product-grid .btn-overlay {
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+}
+.img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+</style>
+
+<script
+src="https://code.jquery.com/jquery-3.5.1.js"
+integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+crossorigin="anonymous"
+></script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+crossorigin="anonymous"
+></script>
+
+{% endblock %}
